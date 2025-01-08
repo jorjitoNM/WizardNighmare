@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.layout.HBox?>
+<AnchorPane fx:id="anchorpane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="screens.SpellLibrary"
+            fx:controller="org.wizard_nightmare.controllers.SpellLibraryController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <HBox fx:id="hechizoContainer" alignment="CENTER" layoutX="200" layoutY="500" spacing="50">
+    </HBox>
+    <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="200" layoutY="600" spacing="50">
+    </HBox>
 </AnchorPane>

@@ -54,7 +54,7 @@ public class Wizard extends Character {
     public int getEnergy() {
         return energy.getValue();
     }
-    public boolean hasEnoughEnergy(int checkValue) {return energy.availableToMinimum() > checkValue; }
+    public boolean hasEnoughEnergy(int checkValue) {return energy.availableToMinimum() >= checkValue; }
 
     public void sleep(int maxRecovery) {
         recoverEnergy(maxRecovery);
