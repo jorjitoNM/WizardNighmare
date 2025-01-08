@@ -1,0 +1,4 @@
+package org.wizard_nightmare.game.demiurge.exceptions;
+
+public class GoSleepException extends Throwable {
+}
