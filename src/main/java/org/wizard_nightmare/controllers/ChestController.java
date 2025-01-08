@@ -29,7 +29,7 @@ public class ChestController {
 
     public void initialize() {
         try {
-            String imagePath = getClass().getResource("/images/gofre.jpeg").toExternalForm();
+            String imagePath = getClass().getResource("/images/cofre.jpeg").toExternalForm();
             anchorPane.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
                     "-fx-background-repeat: no-repeat;");
