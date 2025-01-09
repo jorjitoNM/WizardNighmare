@@ -1,11 +1,8 @@
 package org.wizard_nightmare.controllers;
 
-import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ProgressBar;
@@ -13,21 +10,20 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
-import org.wizard_nightmare.console.ConsoleContainerManager;
-import org.wizard_nightmare.console.ConsoleDungeonManager;
 import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.character.exceptions.CharacterKilledException;
 import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
-import org.wizard_nightmare.game.demiurge.*;
+import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
+import org.wizard_nightmare.game.demiurge.DemiurgeDungeonManager;
+import org.wizard_nightmare.game.demiurge.DemiurgeEndChecker;
+import org.wizard_nightmare.game.demiurge.DungeonConfiguration;
 import org.wizard_nightmare.game.dungeon.Room;
 import org.wizard_nightmare.game.dungeon.Site;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FaceCreatureController {
