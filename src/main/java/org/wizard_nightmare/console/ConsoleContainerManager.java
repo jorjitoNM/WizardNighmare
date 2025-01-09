@@ -16,7 +16,7 @@ public class ConsoleContainerManager {
     Scanner sn;
     DemiurgeContainerManager containerManager;
 
-    ConsoleContainerManager(Scanner s, DemiurgeContainerManager dim){
+    public ConsoleContainerManager(Scanner s, DemiurgeContainerManager dim){
         sn = s;
         containerManager = dim;
     }
