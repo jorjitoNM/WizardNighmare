@@ -109,7 +109,9 @@ public class DungeonLoaderManual implements DungeonLoader {
             demiurge.addCondition(new KillAllCreaturesCondition(dungeon));
 
         } catch (ItemCreationErrorException | ContainerUnacceptedItemException | ContainerFullException |
-                 SpellUnknowableException ignored) { }
+                 SpellUnknowableException ignored) {
+
+        }
     }
 
 }

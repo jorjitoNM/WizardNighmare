@@ -14,7 +14,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         stage = primaryStage;
         primaryStage.setTitle("Dungeon");
-        cambiarPantalla("/screens/spell_library.fxml");
+        cambiarPantalla("/screens/singa_storage.fxml");
         primaryStage.setMinHeight(900);
         primaryStage.setMinWidth(900);
         primaryStage.show();
