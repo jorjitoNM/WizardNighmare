@@ -1,4 +1,4 @@
-package org.wizard_nightmare.controllers;
+package org.wizard_nightmare.ui.controllers;
 
 public class HomeController {
 }
