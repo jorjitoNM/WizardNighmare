@@ -11,7 +11,7 @@ public class FilesService {
     }
 
     public boolean saveGame () {
-        dao.saveDungeonContainerManager();
+        dao.saveDemiurgeContainerManager();
         return false;
     }
 
