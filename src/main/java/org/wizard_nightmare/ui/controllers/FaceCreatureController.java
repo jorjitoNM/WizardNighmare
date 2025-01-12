@@ -1,4 +1,4 @@
-package org.wizard_nightmare.controllers;
+package org.wizard_nightmare.ui.controllers;
 
 import javafx.animation.PauseTransition;
 import javafx.beans.property.DoubleProperty;
@@ -24,11 +24,9 @@ import org.wizard_nightmare.game.dungeon.Site;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Scanner;
 
 public class FaceCreatureController {
 
-    private final Scanner scanner = new Scanner(System.in);
     @FXML
     private AnchorPane screen;
     @FXML
@@ -76,8 +74,8 @@ public class FaceCreatureController {
     }
 
     public void exitRoom() throws CharacterKilledException {
-        if (dungeonManager.canRunAway())
-
+        if (dungeonManager.canRunAway()) //desplazar al mago a su casa o a la habitacion anterior
+            return;
         else{
             dungeonManager.creatureAttack();
             progressValueWizard.set(wizard.getLife());
