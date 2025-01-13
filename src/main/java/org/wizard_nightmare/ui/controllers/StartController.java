@@ -9,4 +9,8 @@ public class StartController {
     public StartController() {
         service = new FilesService();
     }
+
+    public void loadGame () {
+
+    }
 }
