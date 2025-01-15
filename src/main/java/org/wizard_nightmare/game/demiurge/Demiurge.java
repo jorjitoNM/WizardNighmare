@@ -1,21 +1,32 @@
 package org.wizard_nightmare.game.demiurge;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.wizard_nightmare.game.DungeonLoader;
 import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.conditions.Condition;
 import org.wizard_nightmare.game.dungeon.Dungeon;
 import org.wizard_nightmare.game.dungeon.Home;
 
+@Getter
+@Setter
 public class Demiurge {
+    @Getter
     private int day = 0;
+    @Setter
     private Dungeon dungeon;
+    @Setter
     private Home home;
+    @Setter
     private Wizard wizard;
 
     DungeonConfiguration dungeonConfiguration;
+    @Getter
     DemiurgeHomeManager homeManager;
+    @Getter
     DemiurgeContainerManager containerManager;
+    @Getter
     DemiurgeDungeonManager dungeonManager;
     DemiurgeEndChecker endChecker;
 
@@ -46,18 +57,7 @@ public class Demiurge {
         dungeonConfiguration.put("fightSuccessLow", 80);
     }
 
-    public void setDungeon(Dungeon dungeon) { this.dungeon = dungeon; }
-    public void setHome(Home home) {
-        this.home = home;
-    }
-    public void setWizard(Wizard wizard) {
-        this.wizard = wizard;
-    }
     public void addCondition(Condition condition){ endChecker.addCondition(condition); }
-
-    public DemiurgeHomeManager getHomeManager() { return homeManager; }
-    public DemiurgeContainerManager getContainerManager() { return containerManager; }
-    public DemiurgeDungeonManager getDungeonManager() { return dungeonManager; }
 
     public void loadEnvironment(DungeonLoader dungeonLoader) {
         dungeonLoader.load(this, dungeonConfiguration);
@@ -67,13 +67,10 @@ public class Demiurge {
         nextDay();
     }
 
-    public int getDay() {
-        return day;
-    }
-
     public void nextDay() {
         wizard.sleep(home.getComfort() * dungeonConfiguration.get("comfortModifierForEnergy"));
         dungeon.generateCrystals(dungeonConfiguration.get("crystalsPerDay"), dungeonConfiguration.get("singaPerCrystal"));
         day++;
     }
+
 }

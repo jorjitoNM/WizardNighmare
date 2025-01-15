@@ -2,8 +2,7 @@ package org.wizard_nightmare.service;
 
 import org.wizard_nightmare.data.FilesDao;
 import org.wizard_nightmare.game.demiurge.Demiurge;
-import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
-import org.wizard_nightmare.game.demiurge.DemiurgeEndChecker;
+import org.wizard_nightmare.game.dungeon.Dungeon;
 
 public class FilesService {
 
@@ -13,20 +12,20 @@ public class FilesService {
         dao = new FilesDao();
     }
 
-    public boolean saveGame (DemiurgeContainerManager containerManager, DemiurgeEndChecker endChecker, Demiurge demiurge) {
-        return dao.saveDemiurgeContainerManager(containerManager) && dao.saveDemiurgeEndChecker(endChecker) && dao.saveDemiurge(demiurge);
+    public boolean saveDemiurge(Demiurge demiurge) {
+        return dao.saveDemiurge(demiurge);
     }
 
-    public DemiurgeContainerManager loadDemiurgeContainerManager() {
-        return dao.loadDemiurgeContainerManager();
-    }
-
-    public DemiurgeEndChecker loadDemiurgeEndChecker() {
-        return dao.loadDemiurgeEndChecker();
-    }
-
-    public Demiurge loadDemiurge () {
+    public Demiurge loadDemiurge() {
         return dao.loadDemiurge();
+    }
+
+    public boolean saveDungeon (Dungeon dungeon) {
+        return dao.saveDungeon(dungeon);
+    }
+
+    public Dungeon loadDungeon() {
+        return dao.loadDungeon();
     }
 
 }
