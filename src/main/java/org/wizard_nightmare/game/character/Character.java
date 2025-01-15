@@ -1,6 +1,10 @@
 package org.wizard_nightmare.game.character;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.actions.Attack;
 import org.wizard_nightmare.game.actions.PhysicalAttack;
@@ -20,11 +24,17 @@ import java.util.Iterator;
  * Wizard's attributes and related data.
  *
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class Character {
 
     String name;
-    final Domain domain;
-    final Value life;
+    @Getter
+    Domain domain;
+    Value life;
+    //Spells
+    @Getter
     Knowledge memory;
     ArrayList<Attack> attacks;
 
@@ -41,8 +51,6 @@ public abstract class Character {
         attacks = new ArrayList<>();
         attacks.add(new PhysicalAttack(hit));
     }
-
-    public Domain getDomain() { return domain; }
 
     //Life
     public String lifeInfo(){ return getClass().getSimpleName() + " -> " + life; }
@@ -66,8 +74,6 @@ public abstract class Character {
     public abstract int protect(int damage, Domain domain);
 
 
-    //Spells
-    public Knowledge getMemory() { return memory; }
     public void addSpell(Spell spell) throws SpellUnknowableException {
         if(spell instanceof Attack)
             attacks.add((Attack) spell);
