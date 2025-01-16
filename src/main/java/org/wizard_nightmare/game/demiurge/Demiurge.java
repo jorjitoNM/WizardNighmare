@@ -12,21 +12,14 @@ import org.wizard_nightmare.game.dungeon.Home;
 @Getter
 @Setter
 public class Demiurge {
-    @Getter
     private int day = 0;
-    @Setter
     private Dungeon dungeon;
-    @Setter
     private Home home;
-    @Setter
     private Wizard wizard;
 
     DungeonConfiguration dungeonConfiguration;
-    @Getter
     DemiurgeHomeManager homeManager;
-    @Getter
     DemiurgeContainerManager containerManager;
-    @Getter
     DemiurgeDungeonManager dungeonManager;
     DemiurgeEndChecker endChecker;
 

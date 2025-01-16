@@ -15,7 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
-
+import java.nio.file.Path;
 
 
 public class FilesDao {
@@ -49,20 +49,20 @@ public class FilesDao {
             JAXBContext context = JAXBContext.newInstance(Dungeon.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(new MedicalRecords(medicalRecords),Files.newOutputStream());
+            marshaller.marshal(dungeon, Files.newOutputStream(Path.of("data/dungeon.xml")));
+            return true;
         } catch (JAXBException | IOException e) {
-            throw new ExitException(e);
+            throw new RuntimeException();
         }
     }
 
     public Dungeon loadDungeon() {
         try {
-            JAXBContext context = JAXBContext.newInstance(MedicalRecords.class);
+            JAXBContext context = JAXBContext.newInstance(Dungeon.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            MedicalRecords medicalRecords = (MedicalRecords)unmarshaller.unmarshal(Files.newInputStream(configuration.getPathMedicalRecords()));
-            return medicalRecords.getMedicalRecords();
+            return (Dungeon) unmarshaller.unmarshal(Files.newInputStream(Path.of("data/dungeon.xml")));
         } catch (JAXBException | IOException e) {
-            throw new ExitException(e);
+            throw new RuntimeException();
         }
     }
 }

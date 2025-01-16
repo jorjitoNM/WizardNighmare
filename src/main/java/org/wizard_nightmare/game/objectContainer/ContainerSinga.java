@@ -11,7 +11,7 @@ import org.wizard_nightmare.game.object.Item;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 public abstract class ContainerSinga extends Container {
 
     public ContainerSinga(int c) { super(Domain.NONE, c); }

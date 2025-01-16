@@ -20,7 +20,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement(name = "farm")
 @XmlAccessorType(XmlAccessType.NONE)

@@ -9,6 +9,7 @@ import org.wizard_nightmare.game.spell.SpellUnknowableException;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Getter
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "creature")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Creature extends Character {
-
+    @XmlElement(name = "viewed")
     private boolean viewed = false;
 
     public Creature(String n, int life, int hit, Domain t) { super(n, t, life, life, hit); }

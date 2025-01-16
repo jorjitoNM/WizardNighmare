@@ -1,5 +1,6 @@
 package org.wizard_nightmare.ui.controllers;
 
+import javafx.application.Platform;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.character.Wizard;
@@ -44,107 +45,88 @@ public class StartController {
 
     private final FilesService service;
     private Demiurge demiurge;
+    private Dungeon dungeon;
 
     public StartController() {
         service = new FilesService();
     }
 
-    public void loadGame () {
-
+    private void loadDemiurge() throws ContainerUnacceptedItemException, ContainerFullException, SpellUnknowableException {
         demiurge = new Demiurge();
+        /*-----Wizard-----*/
+        System.out.println("\tAdding WIZARD to the system.");
+        CrystalCarrier crystalCarrier = new CrystalCarrier(INITIAL_CRYSTAL_CARRIER_CAPACITY);
+        crystalCarrier.add(SingaCrystal.createCrystal(10));
+        Wearables wearables = new Wearables(INITIAL_MAX_WEAPONS, INITIAL_MAX_NECKLACES, INITIAL_MAX_RINGS);
+        Wizard wizard = new Wizard("Merlin", INITIAL_LIFE, INITIAL_LIFE_MAX, INITIAL_ENERGY, INITIAL_ENERGY_MAX,
+                wearables, crystalCarrier, new JewelryBag(INITIAL_CRYSTAL_BAG_CAPACITY));
+        wizard.addSpell(new FireAttack());
+        wizard.addItem(new Weapon(1));
+        demiurge.setWizard(wizard);
+        /*-----Home-----*/
+        System.out.println("\tCreating HOME");
+        Knowledge library = new Library();
+        library.add(new ElectricAttack());
+        library.add(new FireAttack());
+        library.add(new AirAttack());
+        Home home = new Home("Home", INITIAL_COMFORT, INITIAL_SINGA, INITIAL_SINGA_CAPACITY, new Chest(INITIAL_CHEST_CAPACITY), library);
+        home.addItem(new Weapon(2));
+        demiurge.setHome(home);
+    }
 
+    public void loadGame() {
         try {
-            /*-----Home-----*/
-            System.out.println("\tCreating HOME");
-            Knowledge library = new Library();
-            library.add(new ElectricAttack());
-            library.add(new FireAttack());
-            library.add(new AirAttack());
-            Home home = new Home("Home", INITIAL_COMFORT, INITIAL_SINGA, INITIAL_SINGA_CAPACITY, new Chest(INITIAL_CHEST_CAPACITY), library);
-            home.addItem(new Weapon(2));
-            demiurge.setHome(home);
-
+            loadDemiurge();
             /*-----Dungeon-----*/
             System.out.println("\tCreating DUNGEON");
-            Dungeon dungeon = new Dungeon();
+            dungeon = new Dungeon();
             Room room;
             int id = 0;
-
             System.out.println("\tCreating ROOMS");
             room = new Room(id++, "Common room connected with HOME", new RoomSet(1));
             room.addItem(Necklace.createNecklace(Domain.LIFE, 5));
             dungeon.addRoom(room);
-
             room = new Room(id++, "Common room in the middle", new RoomSet(0));
             Creature creature = new Creature("Big Monster", 5, 1, Domain.ELECTRICITY);
             creature.addSpell(new ElectricAttack());
             room.setCreature(creature);
             dungeon.addRoom(room);
-
             room = new Room(id++, "Common room and Exit", new RoomSet(0), true);
             dungeon.addRoom(room);
-
-            System.out.println("\tCreating DOORS");
-            new Door(home, dungeon.getRoom(0));
-            new Door(dungeon.getRoom(0), dungeon.getRoom(1));
-            new Door(dungeon.getRoom(1), dungeon.getRoom(2));
-
             System.out.println("\t\tTotal rooms in dungeon: " + id);
             demiurge.setDungeon(dungeon);
-
-            /*-----Wizard-----*/
-            System.out.println("\tAdding WIZARD to the system.");
-            CrystalCarrier crystalCarrier = new CrystalCarrier(INITIAL_CRYSTAL_CARRIER_CAPACITY);
-            crystalCarrier.add(SingaCrystal.createCrystal(10));
-            Wearables wearables = new Wearables(INITIAL_MAX_WEAPONS, INITIAL_MAX_NECKLACES, INITIAL_MAX_RINGS);
-            Wizard wizard = new Wizard("Merlin", INITIAL_LIFE, INITIAL_LIFE_MAX, INITIAL_ENERGY, INITIAL_ENERGY_MAX,
-                    wearables, crystalCarrier, new JewelryBag(INITIAL_CRYSTAL_BAG_CAPACITY));
-            wizard.addSpell(new FireAttack());
-            wizard.addItem(new Weapon(1));
-
-            demiurge.setWizard(wizard);
-
             /*-----End Conditions-----*/
             System.out.println("\tAdding END conditions.");
             demiurge.addCondition(new VisitAllRoomsCondition(dungeon));
             demiurge.addCondition(new KillAllCreaturesCondition(dungeon));
-
-        } catch (ItemCreationErrorException | ContainerUnacceptedItemException | ContainerFullException |
-                 SpellUnknowableException ignored) {
+        } catch (ContainerUnacceptedItemException | ContainerFullException | SpellUnknowableException |
+                 ItemCreationErrorException ignored) {
 
         }
     }
 
-    public void loadSavedGame () {
+    public void loadSavedGame() {
         demiurge = service.loadDemiurge();
+        System.out.println("\tCreating HOME");
+        System.out.println("\tCreating DUNGEON");
+        System.out.println("\tCreating ROOMS");
+        System.out.println("\tCreating DOORS");
+        System.out.println("\t\tTotal rooms in dungeon: " + dungeon.getRooms().size());
+        System.out.println("\tAdding WIZARD to the system.");
+        System.out.println("\tAdding END conditions.");
+    }
 
+    private void loadGameFromCustomMap() {
         try {
-            /*-----Home-----*/
-            System.out.println("\tCreating HOME");
-            Home home = demiurge.getHome();
-            demiurge.setHome(home);
-
-            /*-----Dungeon-----*/
-            System.out.println("\tCreating DUNGEON");
-            Dungeon dungeon = new Dungeon();
-
-            System.out.println("\tCreating ROOMS");
-
-            System.out.println("\tCreating DOORS");
-
-            System.out.println("\t\tTotal rooms in dungeon: " + id);
+            loadDemiurge();
+            dungeon = service.loadDungeon();
             demiurge.setDungeon(dungeon);
-
-            /*-----Wizard-----*/
-            System.out.println("\tAdding WIZARD to the system.");
-            Wizard wizard = demiurge.getWizard();
-            demiurge.setWizard(wizard);
-
-            /*-----End Conditions-----*/
-            System.out.println("\tAdding END conditions.");
-        } catch (ItemCreationErrorException | ContainerUnacceptedItemException | ContainerFullException |
-                 SpellUnknowableException ignored) {
+        } catch (ContainerUnacceptedItemException | SpellUnknowableException | ContainerFullException e) {
 
         }
+    }
+
+    public void exit() {
+        Platform.exit();
     }
 }

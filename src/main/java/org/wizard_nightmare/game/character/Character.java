@@ -3,7 +3,6 @@ package org.wizard_nightmare.game.character;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.actions.Attack;
@@ -17,6 +16,9 @@ import org.wizard_nightmare.game.util.Value;
 import org.wizard_nightmare.game.util.ValueOverMaxException;
 import org.wizard_nightmare.game.util.ValueUnderMinException;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -28,14 +30,16 @@ import java.util.Iterator;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Character {
-
+    @XmlElement(name = "name")
     String name;
-    @Getter
+    @XmlAttribute
     Domain domain;
+    @XmlElement(name = "values")
     Value life;
     //Spells
-    @Getter
+    @XmlElement(name = "knowledge")
     Knowledge memory;
+    @XmlTransient
     ArrayList<Attack> attacks;
 
     /**
