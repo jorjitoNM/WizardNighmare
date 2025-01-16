@@ -1,20 +1,32 @@
 package org.wizard_nightmare.game.character;
 
 
+import lombok.*;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.actions.Attack;
 import org.wizard_nightmare.game.spell.Spell;
 import org.wizard_nightmare.game.spell.SpellUnknowableException;
 
-public class Creature extends Character {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@Getter
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "creature")
+@XmlAccessorType(XmlAccessType.NONE)
+public class Creature extends Character {
+    @XmlElement(name = "viewed")
     private boolean viewed = false;
 
     public Creature(String n, int life, int hit, Domain t) { super(n, t, life, life, hit); }
 
     public boolean isAlive() { return getLife() > 0;}
 
-    public boolean isViewed() { return viewed;}
     public void view() { viewed = true; }
 
     public Attack getRandomAttack() { return  getAttack((int) (Math.random() * attacks.size())); }
