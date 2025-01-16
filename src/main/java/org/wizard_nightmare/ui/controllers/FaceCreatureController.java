@@ -54,7 +54,7 @@ public class FaceCreatureController {
         Room currentRoom = (Room) site;
         progressValueCreature = new SimpleDoubleProperty(currentRoom.getCreature().getLife());
         progressValueWizard = new SimpleDoubleProperty(wizard.getLife());
-        try (InputStream input = new FileInputStream("assets/images/habitacion_lucha.png");) {
+        try (InputStream input = new FileInputStream("images/habitacion_lucha.png");) {
             Image image = new Image(input);
             BackgroundImage backgroundimage = new BackgroundImage(image,
                     BackgroundRepeat.NO_REPEAT,
