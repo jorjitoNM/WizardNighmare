@@ -7,7 +7,6 @@ import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.conditions.KillAllCreaturesCondition;
 import org.wizard_nightmare.game.conditions.VisitAllRoomsCondition;
 import org.wizard_nightmare.game.demiurge.Demiurge;
-import org.wizard_nightmare.game.dungeon.Door;
 import org.wizard_nightmare.game.dungeon.Dungeon;
 import org.wizard_nightmare.game.dungeon.Home;
 import org.wizard_nightmare.game.dungeon.Room;
