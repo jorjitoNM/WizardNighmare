@@ -115,7 +115,7 @@ public class StartController {
         System.out.println("\tAdding END conditions.");
     }
 
-    private void loadGameFromCustomMap() {
+    public void loadGameFromCustomMap() {
         try {
             loadDemiurge();
             dungeon = service.loadDungeon();
