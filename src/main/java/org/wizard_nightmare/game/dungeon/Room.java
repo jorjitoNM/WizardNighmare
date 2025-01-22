@@ -1,22 +1,40 @@
 package org.wizard_nightmare.game.dungeon;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.object.SingaCrystal;
 import org.wizard_nightmare.game.objectContainer.CrystalFarm;
 import org.wizard_nightmare.game.objectContainer.RoomSet;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "room")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Room extends Site {
+    @XmlElement(name = "farm")
     private CrystalFarm farm;
+    //Creature
+    @XmlElement(name = "creature")
     private Creature creature = null;
 
-    public Room(int ID, String desc, RoomSet container) {
-        super(ID, desc, container);
+    public Room(int id, String desc, RoomSet container) {
+        super(id, desc, container);
         farm = new CrystalFarm(0);
     }
 
-    public Room(int ID, String desc, RoomSet container, boolean e) {
-        super(ID, desc, container, e);
+    public Room(int id, String desc, RoomSet container, boolean e) {
+        super(id, desc, container, e);
         farm = new CrystalFarm(0);
     }
 
@@ -26,13 +44,6 @@ public class Room extends Site {
     public SingaCrystal gather() { return farm.gather(); }
 
 
-    //Creature
-    public Creature getCreature() {
-        return creature;
-    }
-    public void setCreature(Creature c) {
-        creature = c;
-    }
     public boolean isAlive(){
         if(creature == null)
             return false;
@@ -42,7 +53,7 @@ public class Room extends Site {
 
     public String toString() {
 
-        String exit = "ID(" + ID + ") Exit(" + this.exit + ") " + description;
+        String exit = "ID(" + id + ") Exit(" + this.exit + ") " + description;
         if (creature != null)
             exit = exit.concat("\n\tCreature: " + creature);
         exit = exit.concat("\n\tCrystalFarm[" + farm.toString() + "]");

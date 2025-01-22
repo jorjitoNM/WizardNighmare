@@ -1,6 +1,9 @@
 package org.wizard_nightmare.game.dungeon;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.object.Item;
 import org.wizard_nightmare.game.objectContainer.Container;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
@@ -9,41 +12,34 @@ import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedI
 import java.util.ArrayList;
 import java.util.Iterator;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Site {
-    final int ID;
-    final String description;
+    int id;
+    String description;
     boolean visited = false;
     boolean exit = false;
-    final Container container;
-    private final ArrayList<Door> doors;
+    //Container
+    Container container;
+    private ArrayList<Door> doors;
 
-    public Site(int ID, String description, Container container) {
-        this.ID = ID;
+    public Site(int id, String description, Container container) {
+        this.id = id;
         this.description = description;
         this.container = container;
         doors = new ArrayList<>();
     }
 
-    public Site(int ID, String description, Container container, boolean exit) {
-        this(ID, description, container);
+    public Site(int id, String description, Container container, boolean exit) {
+        this(id, description, container);
         this.exit = exit;
     }
 
-    public int getID() {
-        return ID;
-    }
-    public String getDescription() {
-        return description;
-    }
     public boolean isVisited() { return visited; }
     public void visit() { visited = true; }
-    public boolean isExit() {
-        return exit;
-    }
 
 
-    //Container
-    public Container getContainer() { return container;}
     public void addItem(Item s) throws ContainerUnacceptedItemException, ContainerFullException { container.add(s); }
 
 

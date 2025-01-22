@@ -1,10 +1,28 @@
 package org.wizard_nightmare.game.util;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@XmlRootElement(name = "values")
+@XmlAccessorType(XmlAccessType.NONE)
 public class Value {
+    @XmlElement(name = "value")
     int value;
+    @XmlElement(name = "minimum")
     int minimum;
+    @XmlElement(name = "maximum")
     int maximum;
-    boolean bounded = false;
+    @XmlElement(name = "bounded")
+    boolean bounded;
 
 
     public Value(int val, int min, int max) {
@@ -20,18 +38,8 @@ public class Value {
     }
 
     public void updateValue(int val) { if (!bounded) value = minimum = maximum = val; }
-    public int getValue() {
-        return value;
-    }
 
     public boolean getBounded() { return bounded; }
-
-    public int getMinimum() {
-        return minimum;
-    }
-    public int getMaximum() {
-        return maximum;
-    }
 
     public int availableToMinimum() { return value - minimum; }
     public int availableToMaximum() { return maximum - value; }
