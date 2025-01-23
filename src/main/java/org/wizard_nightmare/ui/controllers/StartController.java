@@ -1,6 +1,8 @@
 package org.wizard_nightmare.ui.controllers;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.character.Wizard;
@@ -25,7 +27,11 @@ import org.wizard_nightmare.game.spellContainer.Knowledge;
 import org.wizard_nightmare.game.spellContainer.Library;
 import org.wizard_nightmare.service.FilesService;
 
+
 public class StartController {
+
+    @FXML
+    private AnchorPane screen;
     private final int INITIAL_COMFORT = 1;
     private final int INITIAL_SINGA = 10;
     private final int INITIAL_SINGA_CAPACITY = 50;
@@ -48,6 +54,22 @@ public class StartController {
 
     public StartController() {
         service = new FilesService();
+    }
+
+    public void initialize() {
+        try {
+            String imagePath = getClass().getResource("/images/pantalla_inicio.png").toExternalForm();
+            screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
+                    "-fx-background-size: cover;" +
+                    "-fx-background-repeat: no-repeat;");
+        } catch (NullPointerException e) {
+            System.out.println("Image not found!");
+        }
+    }
+
+    public void saveGame () {
+        service.saveDungeon(dungeon);
+        service.saveDemiurge(demiurge);
     }
 
     private void loadDemiurge() throws ContainerUnacceptedItemException, ContainerFullException, SpellUnknowableException {

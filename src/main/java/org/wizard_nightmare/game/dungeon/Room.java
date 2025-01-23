@@ -1,6 +1,10 @@
 package org.wizard_nightmare.game.dungeon;
 
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,11 +13,6 @@ import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.object.SingaCrystal;
 import org.wizard_nightmare.game.objectContainer.CrystalFarm;
 import org.wizard_nightmare.game.objectContainer.RoomSet;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

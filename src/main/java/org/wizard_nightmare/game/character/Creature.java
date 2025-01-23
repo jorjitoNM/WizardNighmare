@@ -1,16 +1,15 @@
 package org.wizard_nightmare.game.character;
 
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.actions.Attack;
 import org.wizard_nightmare.game.spell.Spell;
 import org.wizard_nightmare.game.spell.SpellUnknowableException;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)

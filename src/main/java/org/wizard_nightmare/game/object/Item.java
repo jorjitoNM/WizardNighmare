@@ -1,5 +1,6 @@
 package org.wizard_nightmare.game.object;
 
+import jakarta.xml.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,13 +9,12 @@ import org.wizard_nightmare.game.util.Value;
 import org.wizard_nightmare.game.util.ValueOverMaxException;
 import org.wizard_nightmare.game.util.ValueUnderMinException;
 
-import javax.xml.bind.annotation.*;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlRootElement(name = "item")
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(name = "item")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Ring.class, Necklace.class, SingaStone.class, SingaCrystal.class, Weapon.class})
 public abstract class Item {
 
     @XmlAttribute

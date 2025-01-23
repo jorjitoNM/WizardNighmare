@@ -8,16 +8,25 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
+    private static Stage stage;
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage) {
+        stage = primaryStage;
+        primaryStage.setTitle("Dungeon");
+        cambiarPantalla("/screens/start.fxml");
+        primaryStage.setMinHeight(900);
+        primaryStage.setMinWidth(900);
+        primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
+    public static void cambiarPantalla(String fxmlFile) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxmlFile));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

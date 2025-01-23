@@ -1,8 +1,10 @@
 package org.wizard_nightmare.game.object;
 
 
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.wizard_nightmare.game.Domain;
 
+@XmlRootElement
 public class Necklace extends Item {
 
     private Necklace(Domain d, int v) { super(d, v); }

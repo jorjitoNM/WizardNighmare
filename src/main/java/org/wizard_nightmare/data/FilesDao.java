@@ -2,13 +2,13 @@ package org.wizard_nightmare.data;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.dungeon.Dungeon;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +30,7 @@ public class FilesDao {
             gson.toJson(demiurge,fileWriter);
             return true;
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -39,6 +40,7 @@ public class FilesDao {
         try (FileReader fileReader = new FileReader("data/demiurge.json")) {
             return gson.fromJson(fileReader,demiurge);
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -51,7 +53,8 @@ public class FilesDao {
             marshaller.marshal(dungeon, Files.newOutputStream(Path.of("data/dungeon.xml")));
             return true;
         } catch (JAXBException | IOException e) {
-            throw new RuntimeException();
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -61,7 +64,8 @@ public class FilesDao {
             Unmarshaller unmarshaller = context.createUnmarshaller();
             return (Dungeon) unmarshaller.unmarshal(Files.newInputStream(Path.of("data/dungeon.xml")));
         } catch (JAXBException | IOException e) {
-            throw new RuntimeException();
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

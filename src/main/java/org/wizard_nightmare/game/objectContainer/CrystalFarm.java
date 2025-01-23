@@ -1,6 +1,9 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -9,10 +12,6 @@ import org.wizard_nightmare.game.object.SingaCrystal;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedItemException;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * A portable storage to carry the gathered crystals till arrive to home. Maybe a bracelet or a bag...
  * The capacity is limited.
@@ -20,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@XmlRootElement(name = "farm")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
 public class CrystalFarm extends ContainerSinga {
 

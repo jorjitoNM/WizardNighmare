@@ -1,6 +1,9 @@
 package org.wizard_nightmare.game.character;
 
 
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +19,6 @@ import org.wizard_nightmare.game.util.Value;
 import org.wizard_nightmare.game.util.ValueOverMaxException;
 import org.wizard_nightmare.game.util.ValueUnderMinException;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.Iterator;
 

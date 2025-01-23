@@ -1,6 +1,7 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.object.Item;
 import org.wizard_nightmare.game.object.Necklace;
@@ -9,6 +10,7 @@ import org.wizard_nightmare.game.object.Weapon;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedItemException;
 
+@XmlRootElement
 public class RoomSet extends Container{
 
     public RoomSet(int c) { super(Domain.NONE, c); }
