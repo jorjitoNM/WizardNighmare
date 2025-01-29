@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="screens.Room"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="org.wizard_nightmare.ui.controllers.RoomController"
+            prefHeight="400.0" prefWidth="600.0" fx:id="screen">
 
 </AnchorPane>
