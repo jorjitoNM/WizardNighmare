@@ -6,20 +6,20 @@
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.StartController">
 
-    <Label fx:id="lblTitle" layoutX="232.0" layoutY="57.0"
+    <Label layoutX="232.0" layoutY="57.0"
            style="-fx-font-size: 50px; -fx-font-weight: bold; "
            text="Wizard Nightmare" textFill="#ffffff"/>
 
-    <Button fx:id="btnLoadGame" layoutX="349.0" layoutY="232.0" onAction="#loadGame"
+    <Button layoutX="349.0" layoutY="232.0" onAction="#loadGame"
             prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Game"/>
 
-    <Button fx:id="btnLoadSavedGame" layoutX="349.0" layoutY="622.0" onAction="#loadSavedGame"
+    <Button layoutX="349.0" layoutY="622.0" onAction="#loadSavedGame"
             prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Saved Game"/>
 
-    <Button fx:id="btnExit" layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0"
+    <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0"
             prefWidth="200.0" style="-fx-font-size: 20px;" text="Exit"/>
 
-    <Button fx:id="btnSaveGame" layoutX="349.0" layoutY="424.0" onAction="#loadGameFromCustomMap"
+    <Button layoutX="349.0" layoutY="424.0" onAction="#loadGameFromCustomMap"
             prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Save Game"/>
 
 </AnchorPane>
