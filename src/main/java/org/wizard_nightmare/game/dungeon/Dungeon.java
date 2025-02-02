@@ -1,14 +1,28 @@
 package org.wizard_nightmare.game.dungeon;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+@Data
+@XmlRootElement(name = "dungeon")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Dungeon {
-
-    private final ArrayList<Room> rooms;
+    @XmlElement(name = "room")
+    private List<Room> rooms;
 
     public Dungeon() {
         rooms = new ArrayList<>();
+    }
+
+    public Dungeon(List<Room> rooms) {
+        this.rooms = rooms;
     }
 
     public void addRoom(Room room) { rooms.add(room); }
@@ -24,7 +38,7 @@ public class Dungeon {
 
     public Room getSite(int ID){
         for(Room room: rooms){
-            if(room.getID() == ID)
+            if(room.getId() == ID)
                 return  room;
         }
         return null;

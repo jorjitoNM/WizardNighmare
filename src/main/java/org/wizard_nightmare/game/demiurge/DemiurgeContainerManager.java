@@ -13,7 +13,7 @@ public class DemiurgeContainerManager {
     Container bag;
     Container site;
 
-    DemiurgeContainerManager(Container w, Container b, Container s){
+    public DemiurgeContainerManager(Container w, Container b, Container s){
         wearables = w;
         bag = b;
         site = s;

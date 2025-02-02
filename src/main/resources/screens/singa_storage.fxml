@@ -3,19 +3,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.controllers.SingaStorageController">
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.SingaStorageController">
     <HBox fx:id="cofreContainer" alignment="CENTER" layoutX="300" layoutY="500" spacing="50">
     </HBox>
 
     <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="300" layoutY="800" spacing="50">
     </HBox>
 
-    <!-- Nueva sección para mostrar cristales y botón -->
     <VBox alignment="CENTER" layoutX="213.0" layoutY="338.0" spacing="20">
-        <!-- Mostrar cantidad de cristales -->
-        <Label fx:id="cristalesLabel" prefHeight="62.0" prefWidth="120.0" text="Cristales disponibles: 0" />
 
-        <!-- Botón para transformar cristales en singa -->
-        <Button fx:id="transformarButton" text="Transformar cristales en Singa" />
+        <Label fx:id="cristalesLabel" prefHeight="62.0" prefWidth="120.0" text="Cristales disponibles: 0"/>
+
+        <Button fx:id="transformarButton" text="Transformar cristales en Singa"/>
     </VBox>
+    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" text="Back" onAction="#returnBack">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Button>
 </AnchorPane>

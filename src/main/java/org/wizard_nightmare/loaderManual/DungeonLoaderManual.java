@@ -1,6 +1,5 @@
 package org.wizard_nightmare.loaderManual;
 
-
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.DungeonLoader;
 import org.wizard_nightmare.game.character.Creature;
@@ -109,9 +108,7 @@ public class DungeonLoaderManual implements DungeonLoader {
             demiurge.addCondition(new KillAllCreaturesCondition(dungeon));
 
         } catch (ItemCreationErrorException | ContainerUnacceptedItemException | ContainerFullException |
-                 SpellUnknowableException ignored) {
-
-        }
+                 SpellUnknowableException ignored) { }
     }
 
 }

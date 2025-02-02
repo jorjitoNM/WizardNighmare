@@ -1,15 +1,27 @@
 package org.wizard_nightmare.game.object;
 
+import jakarta.xml.bind.annotation.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.util.Value;
 import org.wizard_nightmare.game.util.ValueOverMaxException;
 import org.wizard_nightmare.game.util.ValueUnderMinException;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@XmlType(name = "item")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Ring.class, Necklace.class, SingaStone.class, SingaCrystal.class, Weapon.class})
 public abstract class Item {
 
+    @XmlAttribute
     Domain domain;
+    @XmlElement(name = "values")
     Value value;
+    @XmlElement(name = "viewed")
     boolean viewed = false;
 
     public Item(Domain d, int val) {
@@ -22,13 +34,10 @@ public abstract class Item {
         value = new Value(val, min, max);
     }
 
-    public Domain getDomain(){ return domain; }
-
     public void updateValue(int v) { value.updateValue(v); }
 
     public int getValue() { return value.getValue(); }
 
-    public boolean isViewed() { return viewed;}
     public void view() { viewed = true; }
 
     public boolean getBounded() { return value.getBounded(); }

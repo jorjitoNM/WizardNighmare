@@ -20,7 +20,7 @@ public class ConsoleDungeonManager {
     DemiurgeDungeonManager dDungeonManager;
     ConsoleContainerManager cContainerManager;
 
-    ConsoleDungeonManager(Scanner s, DemiurgeDungeonManager dmm, ConsoleContainerManager ccm){
+    public ConsoleDungeonManager(Scanner s, DemiurgeDungeonManager dmm, ConsoleContainerManager ccm){
         sn = s;
         dDungeonManager = dmm;
         cContainerManager = ccm;

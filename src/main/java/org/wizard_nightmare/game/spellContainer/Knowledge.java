@@ -1,18 +1,28 @@
 package org.wizard_nightmare.game.spellContainer;
 
 
-
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
+import jakarta.xml.bind.annotation.XmlType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.wizard_nightmare.game.spell.Spell;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Basic aggregation of elements that is limited in capacity
  */
+@Data
+@AllArgsConstructor
+@XmlType
 public abstract class Knowledge {
 
-    final ArrayList<Spell> spells;
+    @XmlElementWrapper(name = "spells")
+    @XmlElement(name = "spell")
+    List<Spell> spells;
 
     public Knowledge() { spells = new ArrayList<>(); }
 

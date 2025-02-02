@@ -1,3 +1,6 @@
 package org.wizard_nightmare.game;
 
-public enum Domain {NONE, ELECTRICITY, AIR, FIRE, LIFE, ENERGY, JUMP}
+import jakarta.xml.bind.annotation.XmlEnum;
+
+@XmlEnum
+public enum Domain {AIR, ELECTRICITY, ENERGY, FIRE, JUMP, LIFE, NONE}

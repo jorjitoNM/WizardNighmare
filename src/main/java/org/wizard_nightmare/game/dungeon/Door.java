@@ -19,10 +19,6 @@ public class Door {
             return a;
     }
 
-    public boolean isUsed() {
-        return used;
-    }
-
     public Site openFrom(Site current) {
         used = true;
         return getOtherSite(current);
@@ -33,6 +29,6 @@ public class Door {
     }
 
     public String toString(){
-        return a.getID() + ":" + b.getID();
+        return a.getId() + ":" + b.getId();
     }
 }

@@ -1,7 +1,13 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
-
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
+import jakarta.xml.bind.annotation.XmlType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.object.Item;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
@@ -9,13 +15,21 @@ import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedI
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Basic aggregation of elements that is limited in capacity
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@XmlType
 public abstract class Container extends Item {
 
-    final ArrayList<Item> items;
+    @XmlElementWrapper(name = "items")
+    @XmlElement(name = "item")
+    List<Item> items;
 
     /**
      *

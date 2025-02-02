@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.wizard_nightmare.controllers.ChestController">
+            fx:controller="org.wizard_nightmare.ui.controllers.ChestController" prefHeight="900" prefWidth="900">
     <HBox fx:id="cofreContainer" alignment="CENTER" layoutX="300" layoutY="500" spacing="50">
     </HBox>
     <Label fx:id="mensajeCofreVacio" layoutX="300" layoutY="500" text="El cofre está vacío." textFill="WHITE"
@@ -17,4 +17,9 @@
 
     <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="300" layoutY="800" spacing="50">
     </HBox>
+    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" text="Back" onAction="#returnBack">
+        <font>
+            <Font size="24.0"/>
+        </font>
+    </Button>
 </AnchorPane>
