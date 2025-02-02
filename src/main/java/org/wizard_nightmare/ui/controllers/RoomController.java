@@ -9,8 +9,6 @@ public class RoomController {
     private AnchorPane screen;
 
 
-
-
     public void initialize() {
         try {
             String imagePath = getClass().getResource("/images/habitacion.png").toExternalForm();

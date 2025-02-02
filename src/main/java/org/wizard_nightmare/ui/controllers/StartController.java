@@ -3,12 +3,16 @@ package org.wizard_nightmare.ui.controllers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.conditions.KillAllCreaturesCondition;
 import org.wizard_nightmare.game.conditions.VisitAllRoomsCondition;
 import org.wizard_nightmare.game.demiurge.Demiurge;
+import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
+import org.wizard_nightmare.game.demiurge.DemiurgeDungeonManager;
+import org.wizard_nightmare.game.demiurge.DemiurgeHomeManager;
 import org.wizard_nightmare.game.dungeon.Dungeon;
 import org.wizard_nightmare.game.dungeon.Home;
 import org.wizard_nightmare.game.dungeon.Room;
@@ -28,7 +32,7 @@ import org.wizard_nightmare.game.spellContainer.Library;
 import org.wizard_nightmare.service.FilesService;
 
 
-public class StartController {
+public class StartController implements DemiurgeConsumer {
 
     @FXML
     private AnchorPane screen;
@@ -37,7 +41,6 @@ public class StartController {
     private final int INITIAL_SINGA_CAPACITY = 50;
     private final int INITIAL_CHEST_CAPACITY = 4;
 
-    //Wizard
     private final int INITIAL_LIFE = 10;
     private final int INITIAL_LIFE_MAX = 10;
     private final int INITIAL_ENERGY = 10;
@@ -58,6 +61,7 @@ public class StartController {
 
     public void initialize() {
         try {
+
             String imagePath = getClass().getResource("/images/pantalla_inicio.png").toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
@@ -67,7 +71,7 @@ public class StartController {
         }
     }
 
-    public void saveGame () {
+    public void saveGame() {
         service.saveDungeon(dungeon);
         service.saveDemiurge(demiurge);
     }
@@ -93,6 +97,8 @@ public class StartController {
         Home home = new Home("Home", INITIAL_COMFORT, INITIAL_SINGA, INITIAL_SINGA_CAPACITY, new Chest(INITIAL_CHEST_CAPACITY), library);
         home.addItem(new Weapon(2));
         demiurge.setHome(home);
+
+
     }
 
     public void loadGame() {
@@ -120,10 +126,15 @@ public class StartController {
             System.out.println("\tAdding END conditions.");
             demiurge.addCondition(new VisitAllRoomsCondition(dungeon));
             demiurge.addCondition(new KillAllCreaturesCondition(dungeon));
+            demiurge.setContainerManager(new DemiurgeContainerManager(demiurge.getWizard().getWearables(), demiurge.getWizard().getJewelryBag(), demiurge.getHome().getContainer()));
+            demiurge.setHomeManager(new DemiurgeHomeManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager()));
+            demiurge.setDungeonManager(new DemiurgeDungeonManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager(), demiurge.getEndChecker()));
+            demiurge.nextDay();
         } catch (ContainerUnacceptedItemException | ContainerFullException | SpellUnknowableException |
                  ItemCreationErrorException ignored) {
 
         }
+        App.cambiarPantalla(demiurge, "/screens/home.fxml");
     }
 
     public void loadSavedGame() {
@@ -149,5 +160,10 @@ public class StartController {
 
     public void exit() {
         Platform.exit();
+    }
+
+    @Override
+    public void setDemiurge(Demiurge demiurge) {
+        this.demiurge = demiurge;
     }
 }
