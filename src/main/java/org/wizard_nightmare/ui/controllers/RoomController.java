@@ -23,6 +23,7 @@ public class RoomController implements DemiurgeConsumer {
     private AnchorPane screen;
 
 
+
     @SneakyThrows
     public void initialize() {
         screen.setOnKeyPressed(this::handleArrow);
