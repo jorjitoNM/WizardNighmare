@@ -2,13 +2,24 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.HomeController">
 
     <ProgressBar fx:id="vidaProgress" layoutX="47.0" layoutY="79.0" prefHeight="32.0" prefWidth="323.0" progress="0" />
+    <Label fx:id="vidaLabel" alignment="CENTER" layoutX="47" layoutY="79" prefHeight="32.0" prefWidth="323.0" style="-fx-text-fill: white; -fx-font-weight: bold;" textAlignment="CENTER">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
     <ProgressBar fx:id="energiaProgress" layoutX="47.0" layoutY="179.0" prefHeight="32.0" prefWidth="323.0" progress="0" />
-    <Label layoutX="649.0" layoutY="60.0" prefHeight="59.0" prefWidth="122.0" text="Nivel" textFill="#ffffff">
+
+    <Label fx:id="energiaLabel" alignment="CENTER" layoutX="47" layoutY="179" prefHeight="32.0" prefWidth="323.0" style="-fx-text-fill: white; -fx-font-weight: bold;" textAlignment="CENTER">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
+
+    <Label fx:id="nivel" layoutX="649.0" layoutY="60.0" prefHeight="59.0" prefWidth="122.0" text="Nivel" textFill="#ffffff">
         <font>
             <Font size="48.0" />
         </font>
@@ -28,15 +39,16 @@
             <Font size="24.0" />
         </font>
     </Label>
-    <Button layoutX="339.0" layoutY="783.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="222.0" text="Inventory">
+    <Button fx:id="inventory" layoutX="339.0" layoutY="783.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="222.0" text="Inventory" onMouseClicked="#handleClick">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
-    <Rectangle fx:id="cama" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="379.0" layoutX="13.0"  layoutY="461.0" width="291.0" onMouseClicked="#handleClick"/>
-    <Rectangle fx:id="hechizos1" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="202.0" layoutX="133.0" layoutY="230.0"  width="212.0" onMouseClicked="#handleClick"/>
-    <Rectangle fx:id="singa" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="173.0" layoutX="339.0" layoutY="496.0"  width="250.0" onMouseClicked="#handleClick" />
-    <Rectangle fx:id="hechizos2" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="226.0" layoutX="584.0" layoutY="247.0"  width="222.0" onMouseClicked="#handleClick"/>
-    <Rectangle fx:id="cofre" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="239.0" layoutX="621.0" layoutY="496.0" width="212.0" onMouseClicked="#handleClick"/>
+    <Rectangle fx:id="cama" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="379.0" layoutX="13.0" layoutY="461.0" onMouseClicked="#handleClick" width="291.0" />
+    <Rectangle fx:id="hechizos1" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="202.0" layoutX="133.0" layoutY="230.0" onMouseClicked="#handleClick" width="212.0" />
+    <Rectangle fx:id="singa" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="173.0" layoutX="339.0" layoutY="496.0" onMouseClicked="#handleClick" width="250.0" />
+    <Rectangle fx:id="hechizos2" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="226.0" layoutX="584.0" layoutY="247.0" onMouseClicked="#handleClick" width="222.0" />
+    <Rectangle fx:id="cofre" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="239.0" layoutX="621.0" layoutY="496.0" onMouseClicked="#handleClick" width="212.0" />
 
+    <VBox fx:id="inventoryContainer" layoutX="580" layoutY="700" spacing="10" visible="false" />
 </AnchorPane>
