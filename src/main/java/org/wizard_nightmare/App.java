@@ -22,6 +22,8 @@ public class App extends Application {
         cambiarPantalla(null, "/screens/start.fxml");
         primaryStage.setMinHeight(900);
         primaryStage.setMinWidth(900);
+        primaryStage.setMaxHeight(900);
+        primaryStage.setMaxWidth(900);
         primaryStage.show();
     }
 

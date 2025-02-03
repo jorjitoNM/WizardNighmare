@@ -9,9 +9,14 @@
     </HBox>
     <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="200" layoutY="600" spacing="50">
     </HBox>
-    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" text="Back" onAction="#returnBack">
+    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="58.0" prefWidth="88.0" text="Back">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
+    <Label fx:id="labelHechizosError" alignment="CENTER" layoutX="56.0" layoutY="263.0" prefHeight="122.0" prefWidth="803.0" style="-fx-background-color: black;" textFill="white" visible="false">
+        <font>
+            <Font size="27.0" />
+        </font>
+    </Label>
 </AnchorPane>

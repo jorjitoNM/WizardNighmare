@@ -12,7 +12,6 @@ import javafx.scene.layout.HBox;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.object.Item;
-import org.wizard_nightmare.game.object.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,9 @@ public class ChestController implements DemiurgeConsumer {
     private List<Item> inventario = new ArrayList<>();
 
     public void initialize() {
+
         try {
+
             String imagePath = getClass().getResource("/images/cofre.jpeg").toExternalForm();
             anchorPane.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
@@ -44,10 +45,11 @@ public class ChestController implements DemiurgeConsumer {
     }
 
     private void loadChest() {
-        objetos.addAll(demiurge.getContainerManager().getWearables().getItems());
+        objetos.addAll(demiurge.getHome().getContainer().getItems());
+        inventario.addAll(demiurge.getWizard().getWearables().getItems());
 
         if (objetos.isEmpty()) {
-            mensajeCofreVacio.setText("El cofre está vacío.");
+            mensajeCofreVacio.setText("The chest is empty");
             mensajeCofreVacio.setVisible(true);
         } else {
             for (Item objeto : objetos) {
@@ -79,6 +81,8 @@ public class ChestController implements DemiurgeConsumer {
                 addContextMenuToButton(cofreButton, objeto, cofreContainer);
                 cofreContainer.getChildren().add(cofreButton);
                 inventarioContainer.getChildren().remove(button);
+                if (!objetos.isEmpty())
+                    mensajeCofreVacio.setVisible(false);
             }
         });
 
@@ -86,6 +90,10 @@ public class ChestController implements DemiurgeConsumer {
             container.getChildren().remove(button);
             objetos.remove(objeto);
             inventario.remove(objeto);
+            if (objetos.isEmpty()) {
+                mensajeCofreVacio.setText("The chest is empty");
+                mensajeCofreVacio.setVisible(true);
+            }
         });
 
         intercambiar.setOnAction(e -> System.out.println("Intercambiaste " + objeto));
@@ -98,6 +106,10 @@ public class ChestController implements DemiurgeConsumer {
             Button inventarioButton = new Button(objeto.toString());
             addContextMenuToButton(inventarioButton, objeto, inventarioContainer);
             inventarioContainer.getChildren().add(inventarioButton);
+            if (objetos.isEmpty()) {
+                mensajeCofreVacio.setText("The chest is empty");
+                mensajeCofreVacio.setVisible(true);
+            }
         });
 
         menu.getItems().addAll(dejar, eliminar, intercambiar, coger);
@@ -110,6 +122,8 @@ public class ChestController implements DemiurgeConsumer {
     }
 
     public void returnBack(ActionEvent actionEvent) {
+        demiurge.getHome().getContainer().setItems(objetos);
+        demiurge.getWizard().getWearables().setItems(inventario);
         App.cambiarPantalla(demiurge, "/screens/home.fxml");
     }
 

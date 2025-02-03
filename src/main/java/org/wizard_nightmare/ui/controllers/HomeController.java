@@ -61,7 +61,6 @@ public class HomeController implements DemiurgeConsumer {
             System.out.println("hechizos");
         } else if (source == cofre) {
             App.cambiarPantalla(demiurge, "/screens/chest.fxml");
-            System.out.println("cofre");
         } else if (source == singa) {
             App.cambiarPantalla(demiurge, "/screens/singa_storage.fxml");
             System.out.println("singa");
