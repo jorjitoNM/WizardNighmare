@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.ui.controllers.DemiurgeConsumer;
-import org.wizard_nightmare.ui.controllers.HomeController;
-import org.wizard_nightmare.ui.controllers.StartController;
 
 import java.io.IOException;
 
@@ -22,8 +20,8 @@ public class App extends Application {
         cambiarPantalla(null, "/screens/start.fxml");
         primaryStage.setMinHeight(900);
         primaryStage.setMinWidth(900);
-        primaryStage.setMaxHeight(900);
-        primaryStage.setMaxWidth(900);
+        primaryStage.setMaxHeight(915);
+        primaryStage.setMaxWidth(915);
         primaryStage.show();
     }
 
