@@ -2,15 +2,26 @@ package org.wizard_nightmare.ui.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
 import org.wizard_nightmare.game.demiurge.Demiurge;
-import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
-import org.wizard_nightmare.game.demiurge.DemiurgeHomeManager;
+import org.wizard_nightmare.game.demiurge.exceptions.EndGameException;
+import org.wizard_nightmare.game.demiurge.exceptions.GoHomekException;
+import org.wizard_nightmare.game.object.Item;
+import org.wizard_nightmare.ui.common.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeController implements DemiurgeConsumer {
 
@@ -73,7 +84,6 @@ public class HomeController implements DemiurgeConsumer {
         energiaProgress.setProgress(energiaActual / energiaMaxima);
         vidaLabel.setText(String.format("%.1f / %.1f", vidaActual, vidaMaxima));
         energiaLabel.setText(String.format("%.1f / %.1f", energiaActual, energiaMaxima));
-        screen.setOnKeyPressed(this::handleArrow);
 
         items.addAll(demiurge.getWizard().getWearables().getItems());
         items.addAll(demiurge.getWizard().getCrystalCarrier().getItems());
@@ -86,7 +96,7 @@ public class HomeController implements DemiurgeConsumer {
     public void initialize() {
         screen.setOnKeyPressed(this::handleArrow);
         try {
-            String imagePath = getClass().getResource("/images/habitacion_mago.png").toExternalForm();
+            String imagePath = getClass().getResource(Constants.HOME_IMAGE).toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
                     "-fx-background-repeat: no-repeat;");

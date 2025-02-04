@@ -7,6 +7,7 @@ public class Constants {
     public static final String FINISH = "/screens/finish.fxml";
     public static final String ROOM = "/screens/room.fxml";
     public static final String ROOM_IMAGE = "/images/habitacion.png";
+    public static final String HOME_IMAGE =  "/images/habitacion_mago.png";
 
     private Constants() {}
 }
