@@ -94,6 +94,8 @@ public class HomeController implements DemiurgeConsumer {
 
 
     public void initialize() {
+        screen.setFocusTraversable(true);
+        screen.requestFocus();
         screen.setOnKeyPressed(this::handleArrow);
         try {
             String imagePath = getClass().getResource(Constants.HOME_IMAGE).toExternalForm();
@@ -124,7 +126,6 @@ public class HomeController implements DemiurgeConsumer {
 
     private void toggleInventory() {
         if (!isInventoryVisible) {
-
             inventoryContainer.getChildren().clear();
             for (Item item : items) {
                 Button itemButton = new Button(item.toString());
@@ -143,14 +144,16 @@ public class HomeController implements DemiurgeConsumer {
     }
 
     private void handleArrow (KeyEvent event) {
+        System.out.println("Key pressed : " + event.getCode());
         int selection = -1;
-        if (event.getCode() == KeyCode.UP) {
+        KeyCode keyCode = event.getCode();
+        if (keyCode == KeyCode.W) {
             selection = 0;
-        } else if (event.getCode() == KeyCode.DOWN) {
+        } else if (keyCode == KeyCode.D) {
             selection = 1;
-        } else if (event.getCode() == KeyCode.LEFT) {
+        } else if (keyCode == KeyCode.S) {
             selection = 2;
-        } else if (event.getCode() == KeyCode.RIGHT) {
+        } else if (keyCode == KeyCode.A) {
             selection = 3;
         }
         if (selection >= 0 && selection <= demiurge.getDungeonManager().getNumberOfDoors()) {

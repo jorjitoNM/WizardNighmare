@@ -13,6 +13,7 @@ import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
 import org.wizard_nightmare.game.demiurge.DemiurgeDungeonManager;
 import org.wizard_nightmare.game.demiurge.DemiurgeHomeManager;
+import org.wizard_nightmare.game.dungeon.Door;
 import org.wizard_nightmare.game.dungeon.Dungeon;
 import org.wizard_nightmare.game.dungeon.Home;
 import org.wizard_nightmare.game.dungeon.Room;
@@ -122,6 +123,10 @@ public class StartController implements DemiurgeConsumer {
             dungeon.addRoom(room);
             System.out.println("\t\tTotal rooms in dungeon: " + id);
             demiurge.setDungeon(dungeon);
+            System.out.println("\tCreating DOORS");
+            new Door(demiurge.getHome(), dungeon.getRoom(0));
+            new Door(dungeon.getRoom(0), dungeon.getRoom(1));
+            new Door(dungeon.getRoom(1), dungeon.getRoom(2));
             /*-----End Conditions-----*/
             System.out.println("\tAdding END conditions.");
             demiurge.addCondition(new VisitAllRoomsCondition(dungeon));

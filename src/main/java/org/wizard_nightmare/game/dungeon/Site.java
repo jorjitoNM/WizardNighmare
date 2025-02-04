@@ -44,7 +44,7 @@ public class Site {
 
 
     //Doors
-    public int getNumberOfDoors() {
+    public int  getNumberOfDoors() {
         return doors.size();
     }
     public void addDoor(Door p) {

@@ -50,15 +50,16 @@ public class RoomController implements DemiurgeConsumer {
             creature.setVisible(true);
     }
 
-    private void handleArrow(KeyEvent event) {
+    private void handleArrow (KeyEvent event) {
+        System.out.println("Key pressed : " + event.getCode());
         int selection = -1;
-        if (event.getCode() == KeyCode.UP) {
+        if (event.getCode() == KeyCode.W) {
             selection = 0;
-        } else if (event.getCode() == KeyCode.DOWN) {
+        } else if (event.getCode() == KeyCode.D) {
             selection = 1;
-        } else if (event.getCode() == KeyCode.LEFT) {
+        } else if (event.getCode() == KeyCode.S) {
             selection = 2;
-        } else if (event.getCode() == KeyCode.RIGHT) {
+        } else if (event.getCode() == KeyCode.A) {
             selection = 3;
         }
         if (selection >= 0 && selection <= demiurge.getDungeonManager().getNumberOfDoors()) {
@@ -66,13 +67,15 @@ public class RoomController implements DemiurgeConsumer {
                 demiurge.getDungeonManager().openDoor(selection);
             } catch (WizardTiredException e) {
                 showInfoLabel("Good night... zZzZzZzz");
-                App.cambiarPantalla(demiurge,Constants.HOME);
+                App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (GoHomekException e) {
                 App.cambiarPantalla(demiurge,Constants.HOME);
             } catch (EndGameException e) {
                 App.cambiarPantalla(demiurge,Constants.FINISH);
             }
         }
+        else
+            showInfoLabel("There is not a room there");
     }
 
     private void showInfoLabel (String message){
