@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.SingaStorageController">
-    <HBox fx:id="cofreContainer" alignment="CENTER" layoutX="300" layoutY="500" spacing="50">
-    </HBox>
+<AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.SingaStorageController">
 
-    <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="300" layoutY="800" spacing="50">
-    </HBox>
-
-    <VBox alignment="CENTER" layoutX="213.0" layoutY="338.0" spacing="20">
-
-        <Label fx:id="cristalesLabel" prefHeight="62.0" prefWidth="120.0" text="Cristales disponibles: 0"/>
-
-        <Button fx:id="transformarButton" text="Transformar cristales en Singa"/>
+    <VBox alignment="CENTER" layoutX="230.0" layoutY="205.0" spacing="20">
+        <Label fx:id="crystalsLabel" prefHeight="62.0" prefWidth="400.0" text="Cristales disponibles: 0" textFill="#f8f8f8">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+        <Label fx:id="singaSpaceLabel" prefHeight="62.0" prefWidth="440.0" text="Espacio Singa disponible: 0" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+        <Button fx:id="mergeButton" onAction="#mergeCrystals" prefHeight="102.0" prefWidth="409.0" text="Transformar Cristales">
+         <font>
+            <Font size="36.0" />
+         </font></Button>
     </VBox>
-    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" text="Back" onAction="#returnBack">
+
+    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="58.0" prefWidth="88.0" text="Back">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
+
 </AnchorPane>

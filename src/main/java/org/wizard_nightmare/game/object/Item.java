@@ -9,6 +9,8 @@ import org.wizard_nightmare.game.util.Value;
 import org.wizard_nightmare.game.util.ValueOverMaxException;
 import org.wizard_nightmare.game.util.ValueUnderMinException;
 
+import java.util.Objects;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -78,4 +80,16 @@ public abstract class Item {
             return getClass().getSimpleName() + value + domain;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return viewed == item.viewed && domain == item.domain && Objects.equals(value, item.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(domain, value, viewed);
+    }
 }

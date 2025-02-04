@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <AnchorPane fx:id="anchorpane" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.SpellLibraryController">
     <HBox fx:id="hechizoContainer" alignment="CENTER" layoutX="200" layoutY="500" spacing="50">
     </HBox>
     <HBox fx:id="inventarioContainer" alignment="CENTER" layoutX="200" layoutY="600" spacing="50">
     </HBox>
-    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="88.0" text="Back" onAction="#returnBack">
+    <Button layoutX="754.0" layoutY="795.0" mnemonicParsing="false" onAction="#returnBack" prefHeight="58.0" prefWidth="88.0" text="Back">
         <font>
             <Font size="24.0" />
         </font>
     </Button>
+    <Label fx:id="labelHechizosError" alignment="CENTER" layoutX="56.0" layoutY="263.0" prefHeight="122.0" prefWidth="803.0" style="-fx-background-color: black;" textFill="white" visible="false">
+        <font>
+            <Font size="27.0" />
+        </font>
+    </Label>
 </AnchorPane>
