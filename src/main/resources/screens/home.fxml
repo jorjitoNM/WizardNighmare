@@ -34,6 +34,7 @@
             <Font size="24.0" />
         </font>
     </Button>
+    <Label fx:id="infoLabel" prefHeight="90.0" prefWidth="531.0" layoutX="200.0" layoutY="300.0" />
     <Rectangle fx:id="cama" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="379.0" layoutX="13.0"  layoutY="461.0" width="291.0" onMouseClicked="#handleClick"/>
     <Rectangle fx:id="hechizos1" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="202.0" layoutX="133.0" layoutY="230.0"  width="212.0" onMouseClicked="#handleClick"/>
     <Rectangle fx:id="singa" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="173.0" layoutX="339.0" layoutY="496.0"  width="250.0" onMouseClicked="#handleClick" />
