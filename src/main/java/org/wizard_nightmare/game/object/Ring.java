@@ -1,9 +1,7 @@
 package org.wizard_nightmare.game.object;
 
 
-import jakarta.xml.bind.annotation.XmlRootElement;
 import org.wizard_nightmare.game.Domain;
-@XmlRootElement
 public class Ring extends Item {
 
     private Ring(Domain d, int v) { super(d, v); }

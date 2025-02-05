@@ -1,7 +1,6 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
-import jakarta.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,6 @@ import org.wizard_nightmare.game.object.Item;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@XmlType
 public abstract class ContainerSinga extends Container {
 
     public ContainerSinga(int c) { super(Domain.NONE, c); }

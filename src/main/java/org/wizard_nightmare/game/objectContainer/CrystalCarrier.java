@@ -1,7 +1,6 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
-import jakarta.xml.bind.annotation.XmlRootElement;
 import org.wizard_nightmare.game.object.Item;
 import org.wizard_nightmare.game.object.SingaCrystal;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
@@ -11,7 +10,6 @@ import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedI
  * A portable storage to carry the gathered crystals till arrive to home. Maybe a bracelet or a bag...
  * The capacity is limited.
  */
-@XmlRootElement
 public class CrystalCarrier extends ContainerSinga {
 
     public CrystalCarrier(int c) { super(c); }

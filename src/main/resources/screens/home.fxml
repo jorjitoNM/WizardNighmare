@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.HomeController">
+<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.HomeController" focusTraversable="true">
 
     <ProgressBar fx:id="vidaProgress" layoutX="47.0" layoutY="79.0" prefHeight="32.0" prefWidth="323.0" progress="0" />
     <Label fx:id="vidaLabel" alignment="CENTER" layoutX="47" layoutY="79" prefHeight="32.0" prefWidth="323.0" style="-fx-text-fill: white; -fx-font-weight: bold;" textAlignment="CENTER">

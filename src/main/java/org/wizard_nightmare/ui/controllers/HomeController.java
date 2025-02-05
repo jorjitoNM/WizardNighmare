@@ -94,7 +94,6 @@ public class HomeController implements DemiurgeConsumer {
 
 
     public void initialize() {
-        screen.setFocusTraversable(true);
         screen.requestFocus();
         screen.setOnKeyPressed(this::handleArrow);
         try {
@@ -175,10 +174,10 @@ public class HomeController implements DemiurgeConsumer {
 
     private void showInfoLabel (String message){
         infoLabel.setText(message);
+        infoLabel.setVisible(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);
-        fadeTransition.setDelay(Duration.seconds(2));
         fadeTransition.play();
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Label?>
 <AnchorPane fx:id="screen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.FaceCreatureController">
     <GridPane fx:id="weapons" layoutX="188.0" layoutY="569.0" onMouseClicked="#useItem">
       <columnConstraints>

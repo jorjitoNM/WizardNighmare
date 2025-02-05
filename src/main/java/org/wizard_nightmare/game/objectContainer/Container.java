@@ -1,9 +1,6 @@
 package org.wizard_nightmare.game.objectContainer;
 
 
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElementWrapper;
-import jakarta.xml.bind.annotation.XmlType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,11 +21,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType
 public abstract class Container extends Item {
 
-    @XmlElementWrapper(name = "items")
-    @XmlElement(name = "item")
     List<Item> items;
 
     /**

@@ -20,7 +20,6 @@ public class Site {
     String description;
     boolean visited = false;
     boolean exit = false;
-    //Container
     Container container;
     private ArrayList<Door> doors;
 
