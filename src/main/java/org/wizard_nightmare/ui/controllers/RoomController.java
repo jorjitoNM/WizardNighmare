@@ -27,8 +27,6 @@ public class RoomController implements DemiurgeConsumer {
 
 
     public void initialize() {
-        screen.requestFocus();
-        screen.setOnKeyPressed(this::handleArrow);
         try {
             String imagePath = getClass().getResource(Constants.ROOM_IMAGE).toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +

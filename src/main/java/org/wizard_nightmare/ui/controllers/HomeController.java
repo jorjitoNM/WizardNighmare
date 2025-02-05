@@ -113,6 +113,7 @@ public class HomeController implements DemiurgeConsumer {
         if (source == cama) {
             demiurge.nextDay();
             loadHome();
+            showInfoLabel("Dia: " + demiurge.getDay());
         } else if ((source == hechizos1) || (source == hechizos2)) {
             App.cambiarPantalla(demiurge, "/screens/spell_library.fxml");
         } else if (source == cofre) {
