@@ -27,8 +27,6 @@ public class RoomController implements DemiurgeConsumer {
     private Label infoLabel;
 
 
-
-    @SneakyThrows
     public void initialize() {
         screen.setFocusTraversable(true);
         screen.requestFocus();
@@ -50,7 +48,7 @@ public class RoomController implements DemiurgeConsumer {
             creature.setVisible(true);
     }
 
-    private void handleArrow (KeyEvent event) {
+    private void handleArrow(KeyEvent event) {
         System.out.println("Key pressed : " + event.getCode());
         int selection = -1;
         if (event.getCode() == KeyCode.W) {
@@ -70,16 +68,15 @@ public class RoomController implements DemiurgeConsumer {
                 showInfoLabel("Good night... zZzZzZzz");
                 App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (GoHomekException e) {
-                App.cambiarPantalla(demiurge,Constants.HOME);
+                App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (EndGameException e) {
-                App.cambiarPantalla(demiurge,Constants.FINISH);
+                App.cambiarPantalla(demiurge, Constants.FINISH);
             }
-        }
-        else
+        } else
             showInfoLabel("There is not a room there");
     }
 
-    private void showInfoLabel (String message){
+    private void showInfoLabel(String message) {
         infoLabel.setText(message);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
