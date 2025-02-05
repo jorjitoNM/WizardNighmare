@@ -3,8 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane fx:id="screen" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.FaceCreatureController">
+<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.FaceCreatureController">
     <GridPane fx:id="weapons" layoutX="188.0" layoutY="569.0" onMouseClicked="#useItem">
       <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
@@ -15,11 +16,11 @@
           <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
       </rowConstraints>
     </GridPane>
-   <Button fx:id="exit" layoutX="1025.0" layoutY="594.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Button" onAction="#exitRoom" />
-   <ProgressBar fx:id="monsterHealth" layoutX="85.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
-   <ProgressBar fx:id="magicianHealth" layoutX="923.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
-   <AnchorPane fx:id="monster" layoutX="754.0" layoutY="110.0" prefHeight="446.0" prefWidth="451.0" />
-   <AnchorPane fx:id="" layoutX="85.0" layoutY="125.0" prefHeight="416.0" prefWidth="444.0" />
+   <Button layoutX="1025.0" layoutY="594.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Escape creature" onAction="#exitRoom" />
+   <ProgressBar fx:id="creatureHealth" layoutX="85.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
+   <ProgressBar fx:id="wizardHealth" layoutX="923.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
+   <ImageView fx:id="creature" layoutX="754.0" layoutY="110.0"/>
+   <ImageView fx:id="wizardFX" layoutX="85.0" layoutY="125.0"/>
     <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0" visible="false" style="
     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     -fx-text-fill: white; /* White text color */

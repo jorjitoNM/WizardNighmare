@@ -2,6 +2,7 @@ package org.wizard_nightmare.ui.controllers;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.Domain;
@@ -31,12 +32,16 @@ import org.wizard_nightmare.game.spell.SpellUnknowableException;
 import org.wizard_nightmare.game.spellContainer.Knowledge;
 import org.wizard_nightmare.game.spellContainer.Library;
 import org.wizard_nightmare.service.FilesService;
+import org.wizard_nightmare.ui.common.Constants;
 
 
 public class StartController implements DemiurgeConsumer {
 
     @FXML
+    private Label infoLabel;
+    @FXML
     private AnchorPane screen;
+
     private final int INITIAL_COMFORT = 1;
     private final int INITIAL_SINGA = 10;
     private final int INITIAL_SINGA_CAPACITY = 50;
@@ -62,7 +67,7 @@ public class StartController implements DemiurgeConsumer {
     public void initialize() {
         try {
 
-            String imagePath = getClass().getResource("/images/pantalla_inicio.png").toExternalForm();
+            String imagePath = getClass().getResource(Constants.START_IMAGE).toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
                     "-fx-background-repeat: no-repeat;");
@@ -78,7 +83,7 @@ public class StartController implements DemiurgeConsumer {
     private void loadDemiurge() throws ContainerUnacceptedItemException, ContainerFullException, SpellUnknowableException {
         demiurge = new Demiurge();
         /*-----Wizard-----*/
-        System.out.println("\tAdding WIZARD to the system.");
+        infoLabel.setText("\tAdding WIZARD to the system.");
         CrystalCarrier crystalCarrier = new CrystalCarrier(INITIAL_CRYSTAL_CARRIER_CAPACITY);
         crystalCarrier.add(SingaCrystal.createCrystal(10));
         Wearables wearables = new Wearables(INITIAL_MAX_WEAPONS, INITIAL_MAX_NECKLACES, INITIAL_MAX_RINGS);
@@ -88,7 +93,7 @@ public class StartController implements DemiurgeConsumer {
         wizard.addItem(new Weapon(1));
         demiurge.setWizard(wizard);
         /*-----Home-----*/
-        System.out.println("\tCreating HOME");
+        infoLabel.setText("\tCreating HOME");
         Knowledge library = new Library();
         library.add(new ElectricAttack());
         library.add(new FireAttack());
@@ -102,11 +107,11 @@ public class StartController implements DemiurgeConsumer {
         try {
             loadDemiurge();
             /*-----Dungeon-----*/
-            System.out.println("\tCreating DUNGEON");
+            infoLabel.setText("Creating DUNGEON");
             demiurge.setDungeon(new Dungeon());
             Room room;
             int id = 0;
-            System.out.println("\tCreating ROOMS");
+            infoLabel.setText("\tCreating ROOMS");
             room = new Room(id++, "Common room connected with HOME", new RoomSet(1));
             room.addItem(Necklace.createNecklace(Domain.LIFE, 5));
             demiurge.getDungeon().addRoom(room);
@@ -117,13 +122,13 @@ public class StartController implements DemiurgeConsumer {
             demiurge.getDungeon().addRoom(room);
             room = new Room(id++, "Common room and Exit", new RoomSet(0), true);
             demiurge.getDungeon().addRoom(room);
-            System.out.println("\t\tTotal rooms in dungeon: " + id);
-            System.out.println("\tCreating DOORS");
+            infoLabel.setText("Total rooms in dungeon: " + id);
+            infoLabel.setText("Creating DOORS");
             new Door(demiurge.getHome(),  demiurge.getDungeon().getRoom(0));
             new Door( demiurge.getDungeon().getRoom(0),  demiurge.getDungeon().getRoom(1));
             new Door( demiurge.getDungeon().getRoom(1),  demiurge.getDungeon().getRoom(2));
             /*-----End Conditions-----*/
-            System.out.println("\tAdding END conditions.");
+            infoLabel.setText("Adding END conditions.");
             demiurge.addCondition(new VisitAllRoomsCondition( demiurge.getDungeon()));
             demiurge.addCondition(new KillAllCreaturesCondition( demiurge.getDungeon()));
             demiurge.setContainerManager(new DemiurgeContainerManager(demiurge.getWizard().getWearables(), demiurge.getWizard().getJewelryBag(), demiurge.getHome().getContainer()));
@@ -138,13 +143,13 @@ public class StartController implements DemiurgeConsumer {
 
     public void loadSavedGame() {
         demiurge = service.loadDemiurge();
-        System.out.println("\tCreating HOME");
-        System.out.println("\tCreating DUNGEON");
-        System.out.println("\tCreating ROOMS");
-        System.out.println("\tCreating DOORS");
-        System.out.println("\t\tTotal rooms in dungeon: " +  demiurge.getDungeon().getRooms().size());
-        System.out.println("\tAdding WIZARD to the system.");
-        System.out.println("\tAdding END conditions.");
+        infoLabel.setText("Creating HOME");
+        infoLabel.setText("Creating DUNGEON");
+        infoLabel.setText("Creating ROOMS");
+        infoLabel.setText("Creating DOORS");
+        infoLabel.setText("Total rooms in dungeon: " +  demiurge.getDungeon().getRooms().size());
+        infoLabel.setText("Adding WIZARD to the system.");
+        infoLabel.setText("Adding END conditions.");
     }
 
     public void exit() {
@@ -153,7 +158,7 @@ public class StartController implements DemiurgeConsumer {
     }
 
     @Override
-    public void setDemiurge(Demiurge demiurge) {
+    public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
     }
 }

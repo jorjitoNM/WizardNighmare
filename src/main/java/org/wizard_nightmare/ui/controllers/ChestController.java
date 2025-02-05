@@ -194,7 +194,7 @@ public class ChestController implements DemiurgeConsumer {
     }
 
     @Override
-    public void setDemiurge(Demiurge demiurge) {
+    public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
         loadChest();
     }

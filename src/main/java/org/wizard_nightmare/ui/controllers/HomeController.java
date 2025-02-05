@@ -69,7 +69,7 @@ public class HomeController implements DemiurgeConsumer {
     List<Item> items = new ArrayList<>();
 
     @Override
-    public void setDemiurge(Demiurge demiurge) {
+    public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
         loadHome();
     }

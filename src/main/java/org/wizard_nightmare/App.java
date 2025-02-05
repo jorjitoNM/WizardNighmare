@@ -32,7 +32,7 @@ public class App extends Application {
             Scene scene = new Scene(fxmlLoader.load());
             Object controller = fxmlLoader.getController();
 
-            ((DemiurgeConsumer) controller).setDemiurge(demiurge);
+            ((DemiurgeConsumer) controller).loadScreenData(demiurge);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

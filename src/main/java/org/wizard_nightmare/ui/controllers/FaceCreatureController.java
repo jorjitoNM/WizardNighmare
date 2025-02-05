@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -25,9 +27,9 @@ public class FaceCreatureController implements DemiurgeConsumer {
     @FXML
     private AnchorPane screen;
     @FXML
-    private AnchorPane creature;
+    private ImageView creature;
     @FXML
-    private AnchorPane wizardFX;
+    private ImageView wizardFX;
     @FXML
     private ProgressBar creatureHealth;
     @FXML
@@ -46,6 +48,10 @@ public class FaceCreatureController implements DemiurgeConsumer {
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
                     "-fx-background-repeat: no-repeat;");
+            Image creatureImage = new Image(getClass().getResourceAsStream(Constants.CREATURE_IMAGE));
+            creature.setImage(creatureImage);
+            Image wizardImage = new Image(getClass().getResourceAsStream(Constants.WIZARD_IMAGE));
+            wizardFX.setImage(wizardImage);
         } catch (NullPointerException e) {
             System.out.println("Image not found!");
         }
@@ -56,11 +62,15 @@ public class FaceCreatureController implements DemiurgeConsumer {
         wizardHealth.progressProperty().bind(progressValueWizard);
     }
 
-    public void exitRoom() throws CharacterKilledException {
+    public void exitRoom() {
         if (demiurge.getDungeonManager().canRunAway())
             App.cambiarPantalla(demiurge,Constants.HOME);
         else{
-            demiurge.getDungeonManager().creatureAttack();
+            try {
+                demiurge.getDungeonManager().creatureAttack();
+            } catch (CharacterKilledException e) {
+                App.cambiarPantalla(demiurge, Constants.FINISH);
+            }
             progressValueWizard.set(demiurge.getWizard().getLife());
             creatureAttack();
         }
@@ -70,9 +80,7 @@ public class FaceCreatureController implements DemiurgeConsumer {
         creature.setVisible(false);
         PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
         pause.play();
-        pause.setOnFinished(event -> {
-            creature.setVisible(true);
-        });
+        pause.setOnFinished(event -> creature.setVisible(true));
     }
 
     public void useItem(MouseEvent mouseEvent) {
@@ -81,24 +89,24 @@ public class FaceCreatureController implements DemiurgeConsumer {
             Integer column = GridPane.getColumnIndex(clickedNode);
             try {
                 if (demiurge.getDungeonManager().priority()) {
-                    System.out.println("Wizard has priority");
+                    showInfoLabel("Wizard has priority");
                     if (demiurge.getDungeonManager().wizardAttack(demiurge.getWizard().getAttack(column)))
                         wizardAttack();
                     if (demiurge.getDungeonManager().creatureAttack())
                         creatureAttack();
                 } else {
-                    System.out.println("Creature has priority");
+                    showInfoLabel("Creature has priority");
                     if (demiurge.getDungeonManager().creatureAttack())
                         creatureAttack();
                     if (demiurge.getDungeonManager().wizardAttack(demiurge.getWizard().getAttack(column)))
                         wizardAttack();
                 }
             } catch (WizardTiredException e) {
-                throw new RuntimeException(e);
+                App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (WizardNotEnoughEnergyException e) {
-                throw new RuntimeException(e);
+                showInfoLabel("You dont have enough energy!!");
             } catch (CharacterKilledException e) {
-                throw new RuntimeException(e);
+                App.cambiarPantalla(demiurge, Constants.FINISH);
             }
         }
     }
@@ -113,12 +121,8 @@ public class FaceCreatureController implements DemiurgeConsumer {
     }
 
     @Override
-    public void setDemiurge(Demiurge demiurge) {
+    public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
-        setInitialStage();
-    }
-
-    private void setInitialStage() {
         setCharactersLifebar();
         Room r = (Room) (demiurge.getDungeonManager().getSite());
         progressValueCreature = new SimpleDoubleProperty(r.getCreature().getLife());
@@ -127,10 +131,9 @@ public class FaceCreatureController implements DemiurgeConsumer {
 
     private void showInfoLabel (String message){
         infoLabel.setText(message);
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), infoLabel);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);
-        fadeTransition.setDelay(Duration.seconds(1));
         fadeTransition.play();
     }
 }

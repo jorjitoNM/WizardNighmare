@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="screen" focusTraversable="true" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.RoomController">
-    <ImageView fx:id="creature" fitHeight="515.0" fitWidth="483.0" layoutX="156.0" layoutY="252.0" onMouseClicked="#faceCreature" preserveRatio="true" visible="false" />
-    <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0" style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;" visible="false" />
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="screen" focusTraversable="true" prefHeight="900.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.wizard_nightmare.ui.controllers.RoomController">
+    <ImageView fx:id="creature" fitHeight="515.0" fitWidth="483.0" layoutX="156.0" layoutY="252.0"
+               onMouseClicked="#faceCreature" preserveRatio="true" visible="false"/>
+    <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0"
+           style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;"
+           visible="false"/>
+    <Label fx:id="roomName" layoutX="220.0" layoutY="28.0" prefHeight="60.0" prefWidth="459.0" style="-fx-font-size: 50px; -fx-font-weight: bold; "
+           textFill="#ffffff"/>
 </AnchorPane>

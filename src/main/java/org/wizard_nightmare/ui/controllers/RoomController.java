@@ -24,6 +24,8 @@ public class RoomController implements DemiurgeConsumer {
     private AnchorPane screen;
     @FXML
     private Label infoLabel;
+    @FXML
+    private Label roomName;
 
 
     public void initialize() {
@@ -38,12 +40,12 @@ public class RoomController implements DemiurgeConsumer {
     }
 
     @Override
-    public void setDemiurge(Demiurge demiurge) {
+    public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
-        screen.setFocusTraversable(true);
         screen.requestFocus();
         screen.setOnKeyPressed(this::handleArrow);
-        if (this.demiurge.getDungeonManager().hasCreature())
+        System.out.println((demiurge.getDungeonManager().getRoomInfo().split(" ")));
+        if (this.demiurge.getDungeonManager().isAlive())
             creature.setVisible(true);
     }
 

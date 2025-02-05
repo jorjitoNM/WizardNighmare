@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.StartController">
 
-    <Label layoutX="232.0" layoutY="57.0"
-           style="-fx-font-size: 50px; -fx-font-weight: bold; "
-           text="Wizard Nightmare" textFill="#ffffff"/>
+    <Label layoutX="232.0" layoutY="57.0" style="-fx-font-size: 50px; -fx-font-weight: bold; " text="Wizard Nightmare"
+           textFill="#ffffff"/>
 
-    <Button layoutX="349.0" layoutY="232.0" onAction="#loadGame"
-            prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Game"/>
+    <Button layoutX="349.0" layoutY="232.0" onAction="#loadGame" prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;" text="Load Game"/>
 
-    <Button layoutX="349.0" layoutY="622.0" onAction="#loadSavedGame"
-            prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Saved Game"/>
+    <Button layoutX="350.0" layoutY="399.0" onAction="#loadSavedGame" prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;" text="Load Saved Game"/>
 
-    <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0"
-            prefWidth="200.0" style="-fx-font-size: 20px;" text="Exit"/>
+    <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;" text="Exit"/>
 
+    <Label fx:id="infoLabel" layoutX="200.0" layoutY="570.0" prefHeight="60.0" prefWidth="500.0"
+           style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;"
+           visible="false"/>
 </AnchorPane>
