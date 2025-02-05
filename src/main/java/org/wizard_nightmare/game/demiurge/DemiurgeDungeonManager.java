@@ -1,6 +1,7 @@
 package org.wizard_nightmare.game.demiurge;
 
 
+import lombok.Data;
 import org.wizard_nightmare.game.actions.Attack;
 import org.wizard_nightmare.game.character.Creature;
 import org.wizard_nightmare.game.character.Wizard;
@@ -19,6 +20,7 @@ import org.wizard_nightmare.game.spell.Spell;
 
 import java.util.Iterator;
 
+@Data
 public class DemiurgeDungeonManager {
     private final DungeonConfiguration dc;
     private final Wizard wizard;

@@ -62,9 +62,10 @@ public class RoomController implements DemiurgeConsumer {
         } else if (event.getCode() == KeyCode.A) {
             selection = 3;
         }
-        if (selection >= 0 && selection <= demiurge.getDungeonManager().getNumberOfDoors()) {
+        if (selection >= 0 && selection < demiurge.getDungeonManager().getNumberOfDoors()) {
             try {
                 demiurge.getDungeonManager().openDoor(selection);
+                App.cambiarPantalla(demiurge, Constants.ROOM);
             } catch (WizardTiredException e) {
                 showInfoLabel("Good night... zZzZzZzz");
                 App.cambiarPantalla(demiurge, Constants.HOME);

@@ -156,9 +156,10 @@ public class HomeController implements DemiurgeConsumer {
         } else if (keyCode == KeyCode.A) {
             selection = 3;
         }
-        if (selection >= 0 && selection <= demiurge.getDungeonManager().getNumberOfDoors()) {
+        if (selection >= 0 && selection < demiurge.getDungeonManager().getNumberOfDoors()) {
             try {
                 demiurge.getDungeonManager().openDoor(selection);
+                App.cambiarPantalla(demiurge, Constants.ROOM);
             } catch (WizardTiredException e) {
                 showInfoLabel("Good night... zZzZzZzz");
                 App.cambiarPantalla(demiurge, Constants.HOME);

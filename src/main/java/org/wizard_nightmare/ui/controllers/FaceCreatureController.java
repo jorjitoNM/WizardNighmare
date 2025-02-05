@@ -1,31 +1,32 @@
 package org.wizard_nightmare.ui.controllers;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
+import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.character.exceptions.CharacterKilledException;
 import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
-import org.wizard_nightmare.game.demiurge.DemiurgeContainerManager;
-import org.wizard_nightmare.game.demiurge.DemiurgeDungeonManager;
-import org.wizard_nightmare.game.demiurge.DemiurgeEndChecker;
-import org.wizard_nightmare.game.demiurge.DungeonConfiguration;
+import org.wizard_nightmare.game.demiurge.*;
 import org.wizard_nightmare.game.dungeon.Room;
 import org.wizard_nightmare.game.dungeon.Site;
+import org.wizard_nightmare.ui.common.Constants;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class FaceCreatureController {
+public class FaceCreatureController implements DemiurgeConsumer {
 
     @FXML
     private AnchorPane screen;
@@ -39,46 +40,34 @@ public class FaceCreatureController {
     private ProgressBar wizardHealth;
     @FXML
     private GridPane weapons;
-    private DemiurgeDungeonManager dungeonManager;
-    private DungeonConfiguration dc;
-    private Wizard wizard;
-    private Site site;
-    private DemiurgeContainerManager dcm;
-    private DemiurgeEndChecker checker;
+    @FXML
+    private Label infoLabel;
+    private Demiurge demiurge;
     private DoubleProperty progressValueCreature;
     private DoubleProperty progressValueWizard;
 
-    public FaceCreatureController(DungeonConfiguration dc, Wizard wizard, Site site, DemiurgeContainerManager dcm, DemiurgeEndChecker checker) {
-        dungeonManager = new DemiurgeDungeonManager(dc, wizard, site, dcm, checker);
-        setCharactersLifebar();
-        Room currentRoom = (Room) site;
-        progressValueCreature = new SimpleDoubleProperty(currentRoom.getCreature().getLife());
-        progressValueWizard = new SimpleDoubleProperty(wizard.getLife());
-        try (InputStream input = new FileInputStream("images/habitacion_lucha.png");) {
-            Image image = new Image(input);
-            BackgroundImage backgroundimage = new BackgroundImage(image,
-                    BackgroundRepeat.NO_REPEAT,
-                    BackgroundRepeat.NO_REPEAT,
-                    BackgroundPosition.DEFAULT,
-                    BackgroundSize.DEFAULT);
-            Background background = new Background(backgroundimage);
-            screen.setBackground(background);
-        } catch (IOException e) {
-
+    public void initialize() {
+        try {
+            String imagePath = getClass().getResource(Constants.FACE_CREATURE_IMAGE).toExternalForm();
+            screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
+                    "-fx-background-size: cover;" +
+                    "-fx-background-repeat: no-repeat;");
+        } catch (NullPointerException e) {
+            System.out.println("Image not found!");
         }
     }
 
     private void setCharactersLifebar() {
         creatureHealth.progressProperty().bind(progressValueCreature);
-        creatureHealth.progressProperty().bind(progressValueWizard);
+        wizardHealth.progressProperty().bind(progressValueWizard);
     }
 
     public void exitRoom() throws CharacterKilledException {
-        if (dungeonManager.canRunAway()) //desplazar al mago a su casa o a la habitacion anterior
-            return;
+        if (demiurge.getDungeonManager().canRunAway())
+            App.cambiarPantalla(demiurge,Constants.HOME);
         else{
-            dungeonManager.creatureAttack();
-            progressValueWizard.set(wizard.getLife());
+            demiurge.getDungeonManager().creatureAttack();
+            progressValueWizard.set(demiurge.getWizard().getLife());
             creatureAttack();
         }
     }
@@ -97,17 +86,17 @@ public class FaceCreatureController {
         if (clickedNode != null && clickedNode != weapons) {
             Integer column = GridPane.getColumnIndex(clickedNode);
             try {
-                if (dungeonManager.priority()) {
+                if (demiurge.getDungeonManager().priority()) {
                     System.out.println("Wizard has priority");
-                    if (dungeonManager.wizardAttack(wizard.getAttack(column)))
+                    if (demiurge.getDungeonManager().wizardAttack(demiurge.getWizard().getAttack(column)))
                         wizardAttack();
-                    if (dungeonManager.creatureAttack())
+                    if (demiurge.getDungeonManager().creatureAttack())
                         creatureAttack();
                 } else {
                     System.out.println("Creature has priority");
-                    if (dungeonManager.creatureAttack())
+                    if (demiurge.getDungeonManager().creatureAttack())
                         creatureAttack();
-                    if (dungeonManager.wizardAttack(wizard.getAttack(column)))
+                    if (demiurge.getDungeonManager().wizardAttack(demiurge.getWizard().getAttack(column)))
                         wizardAttack();
                 }
             } catch (WizardTiredException e) {
@@ -127,5 +116,27 @@ public class FaceCreatureController {
         pause.setOnFinished(event -> {
             wizardFX.setVisible(true);
         });
+    }
+
+    @Override
+    public void setDemiurge(Demiurge demiurge) {
+        this.demiurge = demiurge;
+        setInitialStage();
+    }
+
+    private void setInitialStage() {
+        setCharactersLifebar();
+        Room r = (Room) (demiurge.getDungeonManager().getSite());
+        progressValueCreature = new SimpleDoubleProperty(r.getCreature().getLife());
+        progressValueWizard = new SimpleDoubleProperty(demiurge.getWizard().getLife());
+    }
+
+    private void showInfoLabel (String message){
+        infoLabel.setText(message);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), infoLabel);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0.0);
+        fadeTransition.setDelay(Duration.seconds(1));
+        fadeTransition.play();
     }
 }
