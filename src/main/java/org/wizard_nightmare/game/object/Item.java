@@ -1,6 +1,5 @@
 package org.wizard_nightmare.game.object;
 
-import jakarta.xml.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,16 +13,9 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlType(name = "item")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlSeeAlso({Ring.class, Necklace.class, SingaStone.class, SingaCrystal.class, Weapon.class})
 public abstract class Item {
-
-    @XmlAttribute
     Domain domain;
-    @XmlElement(name = "values")
     Value value;
-    @XmlElement(name = "viewed")
     boolean viewed = false;
 
     public Item(Domain d, int val) {

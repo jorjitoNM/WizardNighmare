@@ -8,7 +8,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import lombok.SneakyThrows;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
 import org.wizard_nightmare.game.demiurge.Demiurge;
@@ -28,6 +27,8 @@ public class RoomController implements DemiurgeConsumer {
 
 
     public void initialize() {
+        screen.requestFocus();
+        screen.setOnKeyPressed(this::handleArrow);
         try {
             String imagePath = getClass().getResource(Constants.ROOM_IMAGE).toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +

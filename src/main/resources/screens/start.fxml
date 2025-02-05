@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.StartController">
@@ -17,8 +18,5 @@
 
     <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0"
             prefWidth="200.0" style="-fx-font-size: 20px;" text="Exit"/>
-
-    <Button layoutX="349.0" layoutY="424.0" onAction="#loadGameFromCustomMap"
-            prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Save Game"/>
 
 </AnchorPane>

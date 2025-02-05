@@ -1,25 +1,20 @@
 package org.wizard_nightmare.game.character;
 
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.actions.Attack;
 import org.wizard_nightmare.game.spell.Spell;
 import org.wizard_nightmare.game.spell.SpellUnknowableException;
 
-@Getter
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "creature")
-@XmlAccessorType(XmlAccessType.NONE)
 public class Creature extends Character {
-    @XmlElement(name = "viewed")
     private boolean viewed = false;
 
     public Creature(String n, int life, int hit, Domain t) { super(n, t, life, life, hit); }

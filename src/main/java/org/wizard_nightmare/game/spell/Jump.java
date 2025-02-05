@@ -1,7 +1,6 @@
 package org.wizard_nightmare.game.spell;
 
 
-import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.wizard_nightmare.game.Domain;
@@ -10,7 +9,6 @@ import org.wizard_nightmare.game.dungeon.Dungeon;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@XmlRootElement
 public class Jump extends Spell implements Cast {
 
     Dungeon dungeon;

@@ -1,9 +1,5 @@
 package org.wizard_nightmare.game.util;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,16 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "values")
-@XmlAccessorType(XmlAccessType.NONE)
 public class Value {
-    @XmlElement(name = "value")
     int value;
-    @XmlElement(name = "minimum")
     int minimum;
-    @XmlElement(name = "maximum")
     int maximum;
-    @XmlElement(name = "bounded")
     boolean bounded;
 
 

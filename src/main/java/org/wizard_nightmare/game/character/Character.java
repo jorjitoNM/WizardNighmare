@@ -1,9 +1,6 @@
 package org.wizard_nightmare.game.character;
 
 
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlTransient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,16 +27,10 @@ import java.util.Iterator;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Character {
-    @XmlElement(name = "name")
     String name;
-    @XmlAttribute
     Domain domain;
-    @XmlElement(name = "values")
     Value life;
-    //Spells
-    @XmlElement(name = "knowledge")
     Knowledge memory;
-    @XmlTransient
     ArrayList<Attack> attacks;
 
     /**

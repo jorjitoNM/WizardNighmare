@@ -8,23 +8,17 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import org.wizard_nightmare.App;
-import org.wizard_nightmare.game.character.Wizard;
 import org.wizard_nightmare.game.character.exceptions.CharacterKilledException;
 import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
-import org.wizard_nightmare.game.demiurge.*;
+import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.dungeon.Room;
-import org.wizard_nightmare.game.dungeon.Site;
 import org.wizard_nightmare.ui.common.Constants;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class FaceCreatureController implements DemiurgeConsumer {
 

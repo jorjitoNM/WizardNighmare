@@ -18,10 +18,11 @@ public class App extends Application {
         stage = primaryStage;
         primaryStage.setTitle("Dungeon");
         cambiarPantalla(null, "/screens/start.fxml");
-        primaryStage.setMinHeight(900);
-        primaryStage.setMinWidth(900);
-        primaryStage.setMaxHeight(915);
-        primaryStage.setMaxWidth(915);
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(500);
+        primaryStage.setHeight(600);
+        primaryStage.setMaxHeight(900);
+        primaryStage.setMaxWidth(900);
         primaryStage.show();
     }
 

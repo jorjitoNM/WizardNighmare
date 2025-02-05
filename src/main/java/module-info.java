@@ -3,17 +3,16 @@ module org.wizard_nightmare {
     requires javafx.fxml;
     requires com.google.gson;
     requires static lombok;
-    requires jakarta.xml.bind;
+    requires java.xml;
 
 
     opens org.wizard_nightmare to javafx.fxml;
     opens org.wizard_nightmare.ui.controllers to javafx.fxml;
     opens org.wizard_nightmare.game to javafx.fxml;
-    opens org.wizard_nightmare.game.dungeon to javafx.fxml,jakarta.xml.bind;
+    opens org.wizard_nightmare.game.dungeon to javafx.fxml;
     opens org.wizard_nightmare.game.objectContainer to javafx.fxml;
     opens org.wizard_nightmare.game.demiurge to javafx.fxml;
     opens org.wizard_nightmare.game.object to javafx.fxml;
-    opens org.wizard_nightmare.game.character to javafx.fxml;
     opens org.wizard_nightmare.game.actions to javafx.fxml;
     opens org.wizard_nightmare.game.conditions to javafx.fxml;
     opens org.wizard_nightmare.game.spell to javafx.fxml;

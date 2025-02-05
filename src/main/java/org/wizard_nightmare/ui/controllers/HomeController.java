@@ -94,7 +94,6 @@ public class HomeController implements DemiurgeConsumer {
 
 
     public void initialize() {
-        screen.setFocusTraversable(true);
         screen.requestFocus();
         screen.setOnKeyPressed(this::handleArrow);
         try {

@@ -1,10 +1,6 @@
 package org.wizard_nightmare.game.dungeon;
 
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,13 +14,8 @@ import org.wizard_nightmare.game.objectContainer.RoomSet;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "room")
-@XmlAccessorType(XmlAccessType.NONE)
 public class Room extends Site {
-    @XmlElement(name = "farm")
     private CrystalFarm farm;
-    //Creature
-    @XmlElement(name = "creature")
     private Creature creature = null;
 
     public Room(int id, String desc, RoomSet container) {

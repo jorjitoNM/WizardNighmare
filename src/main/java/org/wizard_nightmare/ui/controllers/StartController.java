@@ -54,7 +54,6 @@ public class StartController implements DemiurgeConsumer {
 
     private final FilesService service;
     private Demiurge demiurge;
-    private Dungeon dungeon;
 
     public StartController() {
         service = new FilesService();
@@ -73,7 +72,6 @@ public class StartController implements DemiurgeConsumer {
     }
 
     public void saveGame() {
-        service.saveDungeon(dungeon);
         service.saveDemiurge(demiurge);
     }
 
@@ -98,8 +96,6 @@ public class StartController implements DemiurgeConsumer {
         Home home = new Home("Home", INITIAL_COMFORT, INITIAL_SINGA, INITIAL_SINGA_CAPACITY, new Chest(INITIAL_CHEST_CAPACITY), library);
         home.addItem(new Weapon(2));
         demiurge.setHome(home);
-
-
     }
 
     public void loadGame() {
@@ -107,37 +103,35 @@ public class StartController implements DemiurgeConsumer {
             loadDemiurge();
             /*-----Dungeon-----*/
             System.out.println("\tCreating DUNGEON");
-            dungeon = new Dungeon();
+            demiurge.setDungeon(new Dungeon());
             Room room;
             int id = 0;
             System.out.println("\tCreating ROOMS");
             room = new Room(id++, "Common room connected with HOME", new RoomSet(1));
             room.addItem(Necklace.createNecklace(Domain.LIFE, 5));
-            dungeon.addRoom(room);
+            demiurge.getDungeon().addRoom(room);
             room = new Room(id++, "Common room in the middle", new RoomSet(0));
             Creature creature = new Creature("Big Monster", 5, 1, Domain.ELECTRICITY);
             creature.addSpell(new ElectricAttack());
             room.setCreature(creature);
-            dungeon.addRoom(room);
+            demiurge.getDungeon().addRoom(room);
             room = new Room(id++, "Common room and Exit", new RoomSet(0), true);
-            dungeon.addRoom(room);
+            demiurge.getDungeon().addRoom(room);
             System.out.println("\t\tTotal rooms in dungeon: " + id);
-            demiurge.setDungeon(dungeon);
             System.out.println("\tCreating DOORS");
-            new Door(demiurge.getHome(), dungeon.getRoom(0));
-            new Door(dungeon.getRoom(0), dungeon.getRoom(1));
-            new Door(dungeon.getRoom(1), dungeon.getRoom(2));
+            new Door(demiurge.getHome(),  demiurge.getDungeon().getRoom(0));
+            new Door( demiurge.getDungeon().getRoom(0),  demiurge.getDungeon().getRoom(1));
+            new Door( demiurge.getDungeon().getRoom(1),  demiurge.getDungeon().getRoom(2));
             /*-----End Conditions-----*/
             System.out.println("\tAdding END conditions.");
-            demiurge.addCondition(new VisitAllRoomsCondition(dungeon));
-            demiurge.addCondition(new KillAllCreaturesCondition(dungeon));
+            demiurge.addCondition(new VisitAllRoomsCondition( demiurge.getDungeon()));
+            demiurge.addCondition(new KillAllCreaturesCondition( demiurge.getDungeon()));
             demiurge.setContainerManager(new DemiurgeContainerManager(demiurge.getWizard().getWearables(), demiurge.getWizard().getJewelryBag(), demiurge.getHome().getContainer()));
             demiurge.setHomeManager(new DemiurgeHomeManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager()));
             demiurge.setDungeonManager(new DemiurgeDungeonManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager(), demiurge.getEndChecker()));
             demiurge.nextDay();
         } catch (ContainerUnacceptedItemException | ContainerFullException | SpellUnknowableException |
                  ItemCreationErrorException ignored) {
-
         }
         App.cambiarPantalla(demiurge, "/screens/home.fxml");
     }
@@ -148,22 +142,13 @@ public class StartController implements DemiurgeConsumer {
         System.out.println("\tCreating DUNGEON");
         System.out.println("\tCreating ROOMS");
         System.out.println("\tCreating DOORS");
-        System.out.println("\t\tTotal rooms in dungeon: " + dungeon.getRooms().size());
+        System.out.println("\t\tTotal rooms in dungeon: " +  demiurge.getDungeon().getRooms().size());
         System.out.println("\tAdding WIZARD to the system.");
         System.out.println("\tAdding END conditions.");
     }
 
-    public void loadGameFromCustomMap() {
-        try {
-            loadDemiurge();
-            dungeon = service.loadDungeon();
-            demiurge.setDungeon(dungeon);
-        } catch (ContainerUnacceptedItemException | SpellUnknowableException | ContainerFullException e) {
-
-        }
-    }
-
     public void exit() {
+        saveGame();
         Platform.exit();
     }
 
