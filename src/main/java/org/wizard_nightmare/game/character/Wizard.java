@@ -33,7 +33,7 @@ public class Wizard extends Character {
     public Wizard(String n, int l, int lm, int e, int em, Wearables w, CrystalCarrier c, JewelryBag j) {
         super(n, Domain.NONE, l, lm, 1);
 
-        energy = new Value(em, 0, e);
+        energy = new Value(e, 0, em);
 
         wearables = w;
         crystalCarrier = c;

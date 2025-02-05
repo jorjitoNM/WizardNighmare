@@ -28,9 +28,6 @@ public class RoomController implements DemiurgeConsumer {
 
 
     public void initialize() {
-        screen.setFocusTraversable(true);
-        screen.requestFocus();
-        screen.setOnKeyPressed(this::handleArrow);
         try {
             String imagePath = getClass().getResource(Constants.ROOM_IMAGE).toExternalForm();
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
@@ -44,6 +41,9 @@ public class RoomController implements DemiurgeConsumer {
     @Override
     public void setDemiurge(Demiurge demiurge) {
         this.demiurge = demiurge;
+        screen.setFocusTraversable(true);
+        screen.requestFocus();
+        screen.setOnKeyPressed(this::handleArrow);
         if (this.demiurge.getDungeonManager().hasCreature())
             creature.setVisible(true);
     }
@@ -78,10 +78,10 @@ public class RoomController implements DemiurgeConsumer {
 
     private void showInfoLabel(String message) {
         infoLabel.setText(message);
+        infoLabel.setVisible(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);
-        fadeTransition.setDelay(Duration.seconds(2));
         fadeTransition.play();
     }
 

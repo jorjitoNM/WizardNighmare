@@ -113,6 +113,7 @@ public class HomeController implements DemiurgeConsumer {
         Object source = event.getSource();
         if (source == cama) {
             demiurge.nextDay();
+            loadHome();
         } else if ((source == hechizos1) || (source == hechizos2)) {
             App.cambiarPantalla(demiurge, "/screens/spell_library.fxml");
         } else if (source == cofre) {
@@ -175,10 +176,10 @@ public class HomeController implements DemiurgeConsumer {
 
     private void showInfoLabel (String message){
         infoLabel.setText(message);
+        infoLabel.setVisible(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
         fadeTransition.setToValue(0.0);
-        fadeTransition.setDelay(Duration.seconds(2));
         fadeTransition.play();
     }
 }

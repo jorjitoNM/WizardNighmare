@@ -42,9 +42,9 @@ public class StartController implements DemiurgeConsumer {
     private final int INITIAL_SINGA_CAPACITY = 50;
     private final int INITIAL_CHEST_CAPACITY = 4;
 
-    private final int INITIAL_LIFE = 10;
+    private final int INITIAL_LIFE = 5;
     private final int INITIAL_LIFE_MAX = 10;
-    private final int INITIAL_ENERGY = 10;
+    private final int INITIAL_ENERGY = 5;
     private final int INITIAL_ENERGY_MAX = 10;
     private final int INITIAL_CRYSTAL_CARRIER_CAPACITY = 3;
     private final int INITIAL_CRYSTAL_BAG_CAPACITY = 2;
