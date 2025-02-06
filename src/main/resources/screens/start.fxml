@@ -11,12 +11,39 @@
            text="Wizard Nightmare" textFill="#ffffff"/>
 
     <Button layoutX="349.0" layoutY="232.0" onAction="#loadGame"
-            prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Game"/>
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #7ba9ec, #0813e8);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+                -fx-border-color: #0D47A1;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Load Game"/>
 
     <Button layoutX="349.0" layoutY="622.0" onAction="#loadSavedGame"
-            prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 20px;" text="Load Saved Game"/>
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #e16f12, #c33908);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+               -fx-border-color: #a15c0d;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Load Saved Game"/>
 
-    <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0"
-            prefWidth="200.0" style="-fx-font-size: 20px;" text="Exit"/>
+    <Button layoutX="665.0" layoutY="789.0" onAction="#exit"
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #D32F2F, #B71C1C);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+               -fx-border-color: #B71C1C;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Exit"/>
 
 </AnchorPane>
