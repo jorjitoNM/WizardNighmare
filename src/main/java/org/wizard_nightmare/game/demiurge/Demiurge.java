@@ -1,6 +1,7 @@
 package org.wizard_nightmare.game.demiurge;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.wizard_nightmare.game.DungeonLoader;
@@ -11,8 +12,9 @@ import org.wizard_nightmare.game.dungeon.Home;
 
 @Getter
 @Setter
+@Data
 public class Demiurge {
-    private int day = 0;
+    private int day;
     private Dungeon dungeon;
     private Home home;
     private Wizard wizard;

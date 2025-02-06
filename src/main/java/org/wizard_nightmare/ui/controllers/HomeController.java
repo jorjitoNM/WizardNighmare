@@ -20,12 +20,15 @@ import org.wizard_nightmare.game.demiurge.exceptions.EndGameException;
 import org.wizard_nightmare.game.demiurge.exceptions.GoHomekException;
 import org.wizard_nightmare.game.dungeon.HomeNotEnoughSingaException;
 import org.wizard_nightmare.game.object.Item;
+import org.wizard_nightmare.service.FilesService;
 import org.wizard_nightmare.ui.common.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeController implements DemiurgeConsumer {
+    @FXML
+    private Button save;
     @FXML
     private Button subirButtom;
     @FXML
@@ -70,6 +73,12 @@ public class HomeController implements DemiurgeConsumer {
     private boolean isInventoryVisible = false;
 
     List<Item> items = new ArrayList<>();
+
+    private final FilesService service;
+
+    public HomeController() {
+        this.service = new FilesService();
+    }
 
     @Override
     public void setDemiurge(Demiurge demiurge) {
@@ -125,6 +134,8 @@ public class HomeController implements DemiurgeConsumer {
             App.cambiarPantalla(demiurge, "/screens/singa_storage.fxml");
         } else if (source == inventory) {
             toggleInventory();
+        } else if (source == save) {
+            service.saveDemiurge(demiurge);
         } else if (source == subirButtom) {
             try {
                 demiurge.getHomeManager().upgradeComfort();

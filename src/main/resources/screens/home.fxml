@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.HomeController"
-            focusTraversable="true">
+<AnchorPane fx:id="screen" focusTraversable="true" prefHeight="900.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.wizard_nightmare.ui.controllers.HomeController">
 
     <ProgressBar fx:id="vidaProgress" layoutX="47.0" layoutY="79.0" prefHeight="32.0" prefWidth="323.0" progress="0"/>
     <Label fx:id="vidaLabel" alignment="CENTER" layoutX="47" layoutY="79" prefHeight="32.0" prefWidth="323.0"
@@ -26,14 +28,14 @@
         </font>
     </Label>
 
-    <Label fx:id="nivel" layoutX="649.0" layoutY="60.0" prefHeight="59.0" prefWidth="122.0" text="Nivel"
-           textFill="#ffffff">
+    <Label fx:id="nivel" layoutX="684.0" layoutY="60.0" prefHeight="59.0" prefWidth="122.0" text="Nivel"
+           textAlignment="CENTER" textFill="#ffffff">
         <font>
             <Font size="48.0"/>
         </font>
     </Label>
-    <Button fx:id="subirButtom" onMouseClicked="#handleClick" layoutX="602.0" layoutY="153.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="186.0"
-            text="Subir de Nivel">
+    <Button fx:id="subirButtom" layoutX="602.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#handleClick"
+            prefHeight="32.0" prefWidth="186.0" text="Level Up">
         <font>
             <Font size="24.0"/>
         </font>
@@ -54,17 +56,9 @@
             <Font size="24.0"/>
         </font>
     </Button>
-    <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0" visible="false" style="
-    -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    -fx-text-fill: white; /* White text color */
-    -fx-font-size: 14px; /* Adjust font size as needed */
-    -fx-alignment: center; /* Center the text within the label */
-    -fx-padding: 10px; /* Add padding around the text */
-    -fx-background-radius: 5px; /* Rounded corners for the background */
-    -fx-border-radius: 5px; /* Rounded corners for the border */
-    -fx-border-color: white; /* White border color */
-    -fx-border-width: 1px; /* Border width */
-    -fx-wrap-text: true;"/>
+    <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0"
+           style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;"
+           visible="false"/>
     <Rectangle fx:id="cama" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="379.0" layoutX="13.0"
                layoutY="461.0" onMouseClicked="#handleClick" width="291.0"/>
     <Rectangle fx:id="hechizos1" arcHeight="5.0" arcWidth="5.0" fill="transparent" height="202.0" layoutX="133.0"
@@ -77,4 +71,13 @@
                layoutY="496.0" onMouseClicked="#handleClick" width="212.0"/>
 
     <VBox fx:id="inventoryContainer" layoutX="580" layoutY="700" spacing="10" visible="false"/>
+    <Button fx:id="save" layoutX="736.0" layoutY="777.0" prefHeight="51.0" prefWidth="63.0"
+            onMouseClicked="#handleClick">
+        <graphic>
+            <ImageView fitHeight="57.0" fitWidth="73.0">
+                <Image url="@../images/guardar.png">
+                </Image>
+            </ImageView>
+        </graphic>
+    </Button>
 </AnchorPane>

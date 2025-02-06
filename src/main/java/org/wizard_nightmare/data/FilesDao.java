@@ -20,7 +20,7 @@ public class FilesDao {
 
     public boolean saveDemiurge(Demiurge demiurge) {
         try (FileWriter fileWriter = new FileWriter("data/demiurge.json")) {
-            gson.toJson(demiurge,fileWriter);
+            gson.toJson(demiurge, fileWriter);
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -28,10 +28,11 @@ public class FilesDao {
         }
     }
 
-    public Demiurge loadDemiurge () {
-        Type demiurge = new TypeToken<Demiurge> () {}.getType();
+    public Demiurge loadDemiurge() {
+        Type demiurge = new TypeToken<Demiurge>() {
+        }.getType();
         try (FileReader fileReader = new FileReader("data/demiurge.json")) {
-            return gson.fromJson(fileReader,demiurge);
+            return gson.fromJson(fileReader, demiurge);
         } catch (IOException e) {
             System.out.println(e.getMessage());
             return null;
