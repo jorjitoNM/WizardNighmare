@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import org.wizard_nightmare.App;
+import org.wizard_nightmare.game.character.Character;
 import org.wizard_nightmare.game.character.exceptions.CharacterKilledException;
 import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
@@ -58,8 +59,15 @@ public class FaceCreatureController implements DemiurgeConsumer {
     }
 
     private void setCharactersLifebar() {
-        creatureHealth.progressProperty().bind(progressValueCreature);
-        wizardHealth.progressProperty().bind(progressValueWizard);
+        creatureHealth = new ProgressBar();
+        updateLifeBar(creatureHealth,demiurge.getWizard());
+        wizardHealth = new ProgressBar();
+        updateLifeBar(creatureHealth,demiurge.getDungeonManager().getCreature());
+    }
+
+    private void updateLifeBar(ProgressBar bar, Character character) {
+        double progress = (double) character.getLife() / character.getLifeMax();
+        bar.setProgress(progress);
     }
 
     public void exitRoom() {

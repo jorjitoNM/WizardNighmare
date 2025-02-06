@@ -10,7 +10,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.demiurge.Demiurge;
+import org.wizard_nightmare.game.dungeon.Room;
 import org.wizard_nightmare.game.object.Item;
+import org.wizard_nightmare.ui.common.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -190,7 +192,10 @@ public class ChestController implements DemiurgeConsumer {
     public void returnBack() {
         demiurge.getHome().getContainer().setItems(objetos);
         demiurge.getWizard().getWearables().setItems(inventario);
-        App.cambiarPantalla(demiurge, "/screens/home.fxml");
+        if (demiurge.getDungeonManager().getSite() instanceof Room)
+            App.cambiarPantalla(demiurge, Constants.ROOM);
+        else
+            App.cambiarPantalla(demiurge, Constants.HOME);
     }
 
     @Override

@@ -3,10 +3,13 @@ package org.wizard_nightmare.ui.controllers;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 import javafx.util.Duration;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
@@ -14,6 +17,8 @@ import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.demiurge.exceptions.EndGameException;
 import org.wizard_nightmare.game.demiurge.exceptions.GoHomekException;
 import org.wizard_nightmare.ui.common.Constants;
+
+import java.util.Arrays;
 
 public class RoomController implements DemiurgeConsumer {
 
@@ -34,6 +39,8 @@ public class RoomController implements DemiurgeConsumer {
             screen.setStyle("-fx-background-image: url('" + imagePath + "');" +
                     "-fx-background-size: cover;" +
                     "-fx-background-repeat: no-repeat;");
+            Image creatureImage = new Image(getClass().getResourceAsStream(Constants.CREATURE_IMAGE));
+            creature.setImage(creatureImage);
         } catch (NullPointerException e) {
             System.out.println("Image not found!");
         }
@@ -44,7 +51,10 @@ public class RoomController implements DemiurgeConsumer {
         this.demiurge = demiurge;
         screen.requestFocus();
         screen.setOnKeyPressed(this::handleArrow);
-        System.out.println((demiurge.getDungeonManager().getRoomInfo().split(" ")));
+        roomName.setWrapText(true);
+        roomName.setMaxWidth(Double.MAX_VALUE);
+        roomName.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        roomName.setText(demiurge.getDungeonManager().getRoomInfo());
         if (this.demiurge.getDungeonManager().isAlive())
             creature.setVisible(true);
     }
@@ -65,10 +75,7 @@ public class RoomController implements DemiurgeConsumer {
             try {
                 demiurge.getDungeonManager().openDoor(selection);
                 App.cambiarPantalla(demiurge, Constants.ROOM);
-            } catch (WizardTiredException e) {
-                showInfoLabel("Good night... zZzZzZzz");
-                App.cambiarPantalla(demiurge, Constants.HOME);
-            } catch (GoHomekException e) {
+            } catch (WizardTiredException | GoHomekException e) {
                 App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (EndGameException e) {
                 App.cambiarPantalla(demiurge, Constants.FINISH);
@@ -88,5 +95,9 @@ public class RoomController implements DemiurgeConsumer {
 
     public void faceCreature() {
         App.cambiarPantalla(demiurge, Constants.FACE_CREATURE);
+    }
+
+    public void openChest() {
+        App.cambiarPantalla(demiurge, Constants.CHEST);
     }
 }

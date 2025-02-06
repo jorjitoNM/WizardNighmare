@@ -43,12 +43,12 @@ public class Room extends Site {
 
     public String toString() {
 
-        String exit = "ID(" + id + ") Exit(" + this.exit + ") " + description;
-        if (creature != null)
-            exit = exit.concat("\n\tCreature: " + creature);
-        exit = exit.concat("\n\tCrystalFarm[" + farm.toString() + "]");
-        exit = exit.concat("\n\tItems" + container.toString());
-        return exit;
+//        String exit = "ID(" + id + ") Exit(" + this.exit + ") " + description;
+//        if (creature != null)
+//            exit = exit.concat("\n\tCreature: " + creature);
+//        exit = exit.concat("\n\tCrystalFarm[" + farm.toString() + "]");
+//        exit = exit.concat("\n\tItems" + container.toString());
+        return description;
     }
 
 

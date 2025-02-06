@@ -63,8 +63,5 @@ public class Home extends Site {
     public Spell getSpell(int index){ return library.get(index); }
 
 
-    public String toString() { return "HOME " + comfort + "\n\t" + singa + "\n\t" + container + "\n\t" + library; }
-
-
-
+    public String toString() { return "HOME"; }
 }
