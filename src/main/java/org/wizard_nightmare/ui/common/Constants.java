@@ -5,11 +5,11 @@ public class Constants {
     public static final String FACE_CREATURE = "/screens/face_creature.fxml";
     public static final String HOME = "/screens/home.fxml";
     public static final String FINISH = "/screens/finish.fxml";
+    public static final String FINISH_IMAGE = "/images/finishmazmorra.jpeg";
     public static final String ROOM = "/screens/room.fxml";
     public static final String ROOM_IMAGE = "/images/habitacion.png";
     public static final String HOME_IMAGE =  "/images/habitacion_mago.png";
     public static final String FACE_CREATURE_IMAGE = "/images/habitacion_lucha.png";
-    public static final String FINISH_IMAGE = "/images/finishMazmorra.jpeg";
     public static final String START = "/screens/start.fxml";
 
     private Constants() {}
