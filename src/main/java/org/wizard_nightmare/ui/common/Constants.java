@@ -11,6 +11,7 @@ public class Constants {
     public static final String HOME_IMAGE =  "/images/habitacion_mago.png";
     public static final String FACE_CREATURE_IMAGE = "/images/habitacion_lucha.png";
     public static final String START = "/screens/start.fxml";
+    public static final String SAVE = "/images/guardar.png";
 
     private Constants() {}
 }
