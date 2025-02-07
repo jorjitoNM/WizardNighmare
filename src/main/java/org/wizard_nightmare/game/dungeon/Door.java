@@ -1,6 +1,5 @@
 package org.wizard_nightmare.game.dungeon;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 @Data

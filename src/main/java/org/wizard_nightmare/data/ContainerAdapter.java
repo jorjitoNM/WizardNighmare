@@ -5,9 +5,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import org.wizard_nightmare.game.Domain;
 import org.wizard_nightmare.game.object.Item;
-import org.wizard_nightmare.game.objectContainer.Chest;
 import org.wizard_nightmare.game.objectContainer.Container;
-import org.wizard_nightmare.game.objectContainer.JewelryBag;
 import org.wizard_nightmare.game.objectContainer.RoomSet;
 
 import java.io.IOException;
