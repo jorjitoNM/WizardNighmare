@@ -1,16 +1,20 @@
 package org.wizard_nightmare.game.demiurge;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.wizard_nightmare.game.object.Item;
 import org.wizard_nightmare.game.objectContainer.Container;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerFullException;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerInvalidExchangeException;
 import org.wizard_nightmare.game.objectContainer.exceptions.ContainerUnacceptedItemException;
 
+@Getter
 public class DemiurgeContainerManager {
 
     Container wearables;
     Container bag;
+    @Setter
     Container site;
 
     public DemiurgeContainerManager(Container w, Container b, Container s){
@@ -18,11 +22,6 @@ public class DemiurgeContainerManager {
         bag = b;
         site = s;
     }
-
-    public Container getWearables() { return wearables; }
-    public Container getBag() { return bag; }
-    public Container getSite() { return site; }
-    public void setSite(Container site) { this.site = site; }
 
     public void deleteItem(Container c, int aIndex) {
         c.remove(aIndex);

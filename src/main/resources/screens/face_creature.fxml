@@ -5,20 +5,15 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="screen" maxHeight="900.0" maxWidth="900.0" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.FaceCreatureController">
-    <GridPane fx:id="weapons" layoutX="180.0" layoutY="600.0" onMouseClicked="#useItem">
-      <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.4" minWidth="10.0" prefWidth="149.4" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.4" minWidth="10.0" prefWidth="151.40000000000003" />
-      </columnConstraints>
-      <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-      </rowConstraints>
+    <GridPane layoutX="80.0" layoutY="700.0">
+        <ImageView fx:id="weapon1" GridPane.columnIndex="0" onMousePressed="#useItem" fitWidth="150.0" fitHeight="100.0" />
+        <ImageView fx:id="weapon2" GridPane.columnIndex="1" onMousePressed="#useItem" fitWidth="150.0" fitHeight="100.0" />
+        <ImageView fx:id="weapon3" GridPane.columnIndex="2" onMousePressed="#useItem" fitWidth="150.0" fitHeight="100.0" />
     </GridPane>
-   <Button layoutX="979.0" layoutY="802.0" mnemonicParsing="false" onAction="#exitRoom" prefHeight="50.0" prefWidth="150.0" text="Escape" />
-   <ProgressBar fx:id="creatureHealth" layoutX="85.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
-   <ProgressBar fx:id="wizardHealth" layoutX="829.0" layoutY="40.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
-   <ImageView fx:id="creature" fitHeight="506.0" fitWidth="386.0" layoutX="710.0" layoutY="184.0" />
-   <ImageView fx:id="wizardFX" fitHeight="506.0" fitWidth="452.0" layoutX="46.0" layoutY="187.0" />
+    <Button layoutX="724.0" layoutY="785.0" mnemonicParsing="false" onAction="#exitRoom" prefHeight="50.0" prefWidth="150.0" text="Escape" />
+    <ProgressBar fx:id="creatureHealth" layoutX="69.0" layoutY="83.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
+    <ProgressBar fx:id="wizardHealth" layoutX="574.0" layoutY="83.0" prefHeight="30.0" prefWidth="300.0" progress="0.0" />
+    <ImageView fx:id="wizardFX" fitHeight="368.0" fitWidth="300.0" layoutX="69.0" layoutY="226.0" />
     <Label fx:id="infoLabel" layoutX="400.0" layoutY="350.0" prefHeight="90.0" prefWidth="531.0" style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;" visible="false" />
+    <ImageView fx:id="creature" fitHeight="350.0" fitWidth="300.0" layoutX="574.0" layoutY="220.0" />
 </AnchorPane>

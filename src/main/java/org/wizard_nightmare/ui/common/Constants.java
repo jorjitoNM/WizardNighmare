@@ -1,7 +1,5 @@
 package org.wizard_nightmare.ui.common;
 
-import org.wizard_nightmare.App;
-
 public class Constants {
 
     public static final String FACE_CREATURE = "/screens/face_creature.fxml";
@@ -15,6 +13,9 @@ public class Constants {
     public static final String WIZARD_IMAGE = "/images/wizard.png";
     public static final String START_IMAGE = "/images/pantalla_inicio.png";
     public static final String CHEST = "/screens/chest.fxml";
+    public static final String WEAPON1 = "/images/weapon1.jpeg";
+    public static final String WEAPON2 = "/images/weapon2.jpeg";
+    public static final String WEAPON3 = "/images/weapon3.jpeg";
 
     private Constants() {}
 }

@@ -10,5 +10,5 @@
     <Label fx:id="infoLabel" layoutX="200.0" layoutY="300.0" prefHeight="90.0" prefWidth="531.0" style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;" visible="false" />
     <Label fx:id="roomName" prefHeight="60.0" prefWidth="459.0" style="-fx-font-size: 30px; -fx-font-weight: bold; " textFill="#ffffff" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="80.0" />
 
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="transparent" height="369.0" layoutX="1.0" layoutY="530.0" onMouseClicked="#openChest" width="261.0" style="-fx-border-color: #fffa49" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="transparent" height="369.0" layoutX="1.0" layoutY="530.0" onMouseClicked="#openChest" width="261.0" style="-fx-background-color: #fffa49" />
 </AnchorPane>

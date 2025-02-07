@@ -2,17 +2,13 @@ package org.wizard_nightmare.ui.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import org.wizard_nightmare.App;
 import org.wizard_nightmare.game.character.Character;
@@ -20,7 +16,6 @@ import org.wizard_nightmare.game.character.exceptions.CharacterKilledException;
 import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
 import org.wizard_nightmare.game.demiurge.Demiurge;
-import org.wizard_nightmare.game.dungeon.Room;
 import org.wizard_nightmare.ui.common.Constants;
 
 public class FaceCreatureController implements DemiurgeConsumer {
@@ -36,12 +31,15 @@ public class FaceCreatureController implements DemiurgeConsumer {
     @FXML
     private ProgressBar wizardHealth;
     @FXML
-    private GridPane weapons;
-    @FXML
     private Label infoLabel;
+    @FXML
+    private ImageView weapon1;
+    @FXML
+    private ImageView weapon2;
+    @FXML
+    private ImageView weapon3;
+
     private Demiurge demiurge;
-    private DoubleProperty progressValueCreature;
-    private DoubleProperty progressValueWizard;
 
     public void initialize() {
         try {
@@ -58,28 +56,15 @@ public class FaceCreatureController implements DemiurgeConsumer {
         }
     }
 
-    private void setCharactersLifebar() {
-        creatureHealth = new ProgressBar();
-        updateLifeBar(creatureHealth,demiurge.getWizard());
-        wizardHealth = new ProgressBar();
-        updateLifeBar(creatureHealth,demiurge.getDungeonManager().getCreature());
-    }
-
-    private void updateLifeBar(ProgressBar bar, Character character) {
-        double progress = (double) character.getLife() / character.getLifeMax();
-        bar.setProgress(progress);
-    }
-
     public void exitRoom() {
         if (demiurge.getDungeonManager().canRunAway())
-            App.cambiarPantalla(demiurge,Constants.HOME);
-        else{
+            App.cambiarPantalla(demiurge, Constants.HOME);
+        else {
             try {
                 demiurge.getDungeonManager().creatureAttack();
             } catch (CharacterKilledException e) {
                 App.cambiarPantalla(demiurge, Constants.FINISH);
             }
-            progressValueWizard.set(demiurge.getWizard().getLife());
             creatureAttack();
         }
     }
@@ -91,10 +76,19 @@ public class FaceCreatureController implements DemiurgeConsumer {
         pause.setOnFinished(event -> creature.setVisible(true));
     }
 
-    public void useItem(MouseEvent mouseEvent) {
-        Node clickedNode = mouseEvent.getPickResult().getIntersectedNode();
-        if (clickedNode != null && clickedNode != weapons) {
-            Integer column = GridPane.getColumnIndex(clickedNode);
+
+    public void useItem(MouseEvent event) {
+        int column = -1;
+        if (event.getSource() == weapon2) {
+            column = 1;
+        } else if (event.getSource() == weapon3) {
+            column = 2;
+        } else if (event.getSource() == weapon1) {
+            column = 0;
+        }
+        if (demiurge.getWizard().getNumberOfAttacks() < 3 && column == 2)
+            showInfoLabel("Attack not available");
+        else {
             try {
                 if (demiurge.getDungeonManager().priority()) {
                     showInfoLabel("Wizard has priority");
@@ -109,6 +103,7 @@ public class FaceCreatureController implements DemiurgeConsumer {
                     if (demiurge.getDungeonManager().wizardAttack(demiurge.getWizard().getAttack(column)))
                         wizardAttack();
                 }
+                updateCharactersLifebar();
             } catch (WizardTiredException e) {
                 App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (WizardNotEnoughEnergyException e) {
@@ -123,21 +118,40 @@ public class FaceCreatureController implements DemiurgeConsumer {
         wizardFX.setVisible(false);
         PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
         pause.play();
-        pause.setOnFinished(event -> {
-            wizardFX.setVisible(true);
-        });
+        pause.setOnFinished(event -> wizardFX.setVisible(true));
     }
 
     @Override
     public void loadScreenData(Demiurge demiurge) {
         this.demiurge = demiurge;
-        setCharactersLifebar();
-        Room r = (Room) (demiurge.getDungeonManager().getSite());
-        progressValueCreature = new SimpleDoubleProperty(r.getCreature().getLife());
-        progressValueWizard = new SimpleDoubleProperty(demiurge.getWizard().getLife());
+        updateCharactersLifebar();
+        try {
+            Image weapon1Image = new Image(getClass().getResourceAsStream(Constants.WEAPON1));
+            weapon1.setImage(weapon1Image);
+            Image weapon2Image = new Image(getClass().getResourceAsStream(Constants.WEAPON2));
+            weapon2.setImage(weapon2Image);
+            Image weapon3Image = new Image(getClass().getResourceAsStream(Constants.WEAPON3));
+            weapon3.setImage(weapon3Image);
+        } catch (NullPointerException e) {
+            System.out.println("Image not found!");
+        }
     }
 
-    private void showInfoLabel (String message){
+    private void updateCharactersLifebar() {
+        updateLifeBar(creatureHealth, demiurge.getWizard());
+        updateLifeBar(wizardHealth, demiurge.getDungeonManager().getCreature());
+    }
+
+    private void updateLifeBar(ProgressBar bar, Character character) {
+        if (character.getLifeMax() == 0) {
+            bar.setProgress(0);
+            return;
+        }
+        double progress = (double) character.getLife() / character.getLifeMax();
+        bar.setProgress(progress);
+    }
+
+    private void showInfoLabel(String message) {
         infoLabel.setText(message);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
         fadeTransition.setFromValue(1.0);
