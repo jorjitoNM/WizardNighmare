@@ -8,7 +8,7 @@
             {
               "type": "SingaCrystal",
               "domain": "NONE",
-              "value": 9,
+              "value": 10,
               "viewed": false
             }
           ],
@@ -61,7 +61,13 @@
             {
               "type": "SingaCrystal",
               "domain": "NONE",
-              "value": 9,
+              "value": 10,
+              "viewed": false
+            },
+            {
+              "type": "SingaCrystal",
+              "domain": "NONE",
+              "value": 8,
               "viewed": false
             },
             {
@@ -73,9 +79,9 @@
           ],
           "domain": "NONE",
           "value": {
-            "value": 2,
-            "minimum": 2,
-            "maximum": 2,
+            "value": 3,
+            "minimum": 3,
+            "maximum": 3,
             "bounded": false
           },
           "viewed": false
@@ -147,7 +153,7 @@
             {
               "type": "SingaCrystal",
               "domain": "NONE",
-              "value": 2,
+              "value": 7,
               "viewed": false
             }
           ],
@@ -293,7 +299,7 @@
         {
           "type": "SingaCrystal",
           "domain": "NONE",
-          "value": 4,
+          "value": 5,
           "viewed": false
         }
       ],
@@ -434,7 +440,7 @@
           {
             "type": "SingaCrystal",
             "domain": "NONE",
-            "value": 4,
+            "value": 5,
             "viewed": false
           }
         ],
@@ -720,7 +726,7 @@
           {
             "type": "SingaCrystal",
             "domain": "NONE",
-            "value": 4,
+            "value": 5,
             "viewed": false
           }
         ],
@@ -893,7 +899,7 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 9,
+                      "value": 10,
                       "viewed": false
                     }
                   ],
@@ -946,7 +952,13 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 9,
+                      "value": 10,
+                      "viewed": false
+                    },
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 8,
                       "viewed": false
                     },
                     {
@@ -958,9 +970,9 @@
                   ],
                   "domain": "NONE",
                   "value": {
-                    "value": 2,
-                    "minimum": 2,
-                    "maximum": 2,
+                    "value": 3,
+                    "minimum": 3,
+                    "maximum": 3,
                     "bounded": false
                   },
                   "viewed": false
@@ -1032,7 +1044,7 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 2,
+                      "value": 7,
                       "viewed": false
                     }
                   ],
@@ -1075,7 +1087,7 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 9,
+                      "value": 10,
                       "viewed": false
                     }
                   ],
@@ -1128,7 +1140,13 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 9,
+                      "value": 10,
+                      "viewed": false
+                    },
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 8,
                       "viewed": false
                     },
                     {
@@ -1140,9 +1158,9 @@
                   ],
                   "domain": "NONE",
                   "value": {
-                    "value": 2,
-                    "minimum": 2,
-                    "maximum": 2,
+                    "value": 3,
+                    "minimum": 3,
+                    "maximum": 3,
                     "bounded": false
                   },
                   "viewed": false
@@ -1214,7 +1232,7 @@
                     {
                       "type": "SingaCrystal",
                       "domain": "NONE",
-                      "value": 2,
+                      "value": 7,
                       "viewed": false
                     }
                   ],
@@ -1263,7 +1281,7 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 9,
+                    "value": 10,
                     "viewed": false
                   }
                 ],
@@ -1316,7 +1334,13 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 9,
+                    "value": 10,
+                    "viewed": false
+                  },
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 8,
                     "viewed": false
                   },
                   {
@@ -1328,9 +1352,9 @@
                 ],
                 "domain": "NONE",
                 "value": {
-                  "value": 2,
-                  "minimum": 2,
-                  "maximum": 2,
+                  "value": 3,
+                  "minimum": 3,
+                  "maximum": 3,
                   "bounded": false
                 },
                 "viewed": false
@@ -1402,7 +1426,7 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 2,
+                    "value": 7,
                     "viewed": false
                   }
                 ],
@@ -1445,7 +1469,7 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 9,
+                    "value": 10,
                     "viewed": false
                   }
                 ],
@@ -1498,7 +1522,13 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 9,
+                    "value": 10,
+                    "viewed": false
+                  },
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 8,
                     "viewed": false
                   },
                   {
@@ -1510,9 +1540,9 @@
                 ],
                 "domain": "NONE",
                 "value": {
-                  "value": 2,
-                  "minimum": 2,
-                  "maximum": 2,
+                  "value": 3,
+                  "minimum": 3,
+                  "maximum": 3,
                   "bounded": false
                 },
                 "viewed": false
@@ -1584,7 +1614,7 @@
                   {
                     "type": "SingaCrystal",
                     "domain": "NONE",
-                    "value": 2,
+                    "value": 7,
                     "viewed": false
                   }
                 ],

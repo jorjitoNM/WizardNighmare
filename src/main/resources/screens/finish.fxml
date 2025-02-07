@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
 <AnchorPane fx:id="screen" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wizard_nightmare.ui.controllers.FinishController">
     <children>
         <Button layoutX="49.0" layoutY="644.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="104.0" prefWidth="166.0" text="Go to Menu">
@@ -21,5 +21,10 @@
                 <Font size="24.0" />
             </font>
         </Button>
+      <Button layoutX="232.0" layoutY="644.0" mnemonicParsing="false" onAction="#getInforme" prefHeight="33.0" prefWidth="218.0" text="Wizard Report">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

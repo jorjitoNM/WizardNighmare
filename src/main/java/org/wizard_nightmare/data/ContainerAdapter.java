@@ -68,7 +68,9 @@ public class ContainerAdapter extends TypeAdapter<Container> {
 
         // Crear la instancia correcta según el "type"
         Container container;
+        System.out.println(type);
         switch (type) {
+
             case "RoomSet":
                 container = new RoomSet(value);  // Crear RoomSet con el valor 'value'
                 break;

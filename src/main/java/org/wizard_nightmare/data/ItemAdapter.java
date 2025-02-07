@@ -43,15 +43,13 @@ public class ItemAdapter extends TypeAdapter<Item> {
 
     @Override
     public Item read(JsonReader in) throws IOException {
-        // Leemos el objeto JSON completo
         JsonObject jsonObject = gson.fromJson(in, JsonObject.class);
 
-        // Obtenemos el campo "type" para saber qué subclase instanciar
         JsonElement typeElement = jsonObject.get("type");
-        String type = null;
+        String type = typeElement != null ? typeElement.getAsString() : null;
 
-        if (typeElement != null && !typeElement.isJsonNull()) {
-            type = typeElement.getAsString();
+        if (type != null) {
+            System.out.println(type);
             switch (type) {
                 case "Weapon":
                     return gson.fromJson(jsonObject, Weapon.class);
@@ -70,10 +68,7 @@ public class ItemAdapter extends TypeAdapter<Item> {
                     throw new IOException("Unknown item type: " + type);
             }
         }
-        // Eliminamos el campo "type" para evitar conflictos al deserializar
-        jsonObject.remove("type");
 
-        // Según el valor de "type", delegamos la deserialización a la subclase correspondiente
-        throw new IOException("Missing or invalid 'type' field in JSON object.");
+        return null;
     }
 }
