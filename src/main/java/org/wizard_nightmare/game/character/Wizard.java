@@ -23,8 +23,8 @@ import org.wizard_nightmare.game.util.ValueUnderMinException;
  * Wizard's attributes and related data.
  *
  */
-public class Wizard extends Character {
 
+public class Wizard extends Character {
     private final Value energy;
     private final Wearables wearables;
     private final CrystalCarrier crystalCarrier;

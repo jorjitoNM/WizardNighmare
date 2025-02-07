@@ -1,5 +1,8 @@
 package org.wizard_nightmare.game.dungeon;
 
+import lombok.Data;
+
+@Data
 public class Door {
     private final Site a;
     private final Site b;
@@ -28,7 +31,7 @@ public class Door {
         return getOtherSite(current);
     }
 
-    public String toString(){
+    public String toString() {
         return a.getId() + ":" + b.getId();
     }
 }
