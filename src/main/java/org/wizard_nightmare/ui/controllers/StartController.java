@@ -119,9 +119,9 @@ public class StartController implements DemiurgeConsumer {
             demiurge.getDungeon().addRoom(room);
             System.out.println("\t\tTotal rooms in dungeon: " + id);
             System.out.println("\tCreating DOORS");
-            new Door(demiurge.getHome(),  demiurge.getDungeon().getRoom(0));
-            new Door( demiurge.getDungeon().getRoom(0),  demiurge.getDungeon().getRoom(1));
-            new Door( demiurge.getDungeon().getRoom(1),  demiurge.getDungeon().getRoom(2));
+            new Door(demiurge.getHome(), demiurge.getDungeon().getRoom(0));
+            new Door(demiurge.getDungeon().getRoom(0), demiurge.getDungeon().getRoom(1));
+            new Door(demiurge.getDungeon().getRoom(1), demiurge.getDungeon().getRoom(2));
             /*-----End Conditions-----*/
             System.out.println("\tAdding END conditions.");
             demiurge.addCondition(new VisitAllRoomsCondition( demiurge.getDungeon()));
@@ -146,6 +146,8 @@ public class StartController implements DemiurgeConsumer {
         System.out.println("\t\tTotal rooms in dungeon: " +  demiurge.getDungeon().getRooms().size());
         System.out.println("\tAdding WIZARD to the system.");
         System.out.println("\tAdding END conditions.");
+
+        App.cambiarPantalla(demiurge, "/screens/home.fxml");
     }
 
     public void exit() {

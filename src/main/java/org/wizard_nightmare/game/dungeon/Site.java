@@ -35,23 +35,35 @@ public class Site {
         this.exit = exit;
     }
 
-    public boolean isVisited() { return visited; }
-    public void visit() { visited = true; }
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void visit() {
+        visited = true;
+    }
 
 
-    public void addItem(Item s) throws ContainerUnacceptedItemException, ContainerFullException { container.add(s); }
+    public void addItem(Item s) throws ContainerUnacceptedItemException, ContainerFullException {
+        container.add(s);
+    }
 
 
     //Doors
-    public int  getNumberOfDoors() {
+    public int getNumberOfDoors() {
         return doors.size();
     }
+
     public void addDoor(Door p) {
         doors.add(p);
     }
+
     public Site openDoor(int index) {
         return doors.get(index).openFrom(this);
     }
-    public Iterator<Door> iterator(){ return doors.iterator(); }
+
+    public Iterator<Door> iterator() {
+        return doors.iterator();
+    }
 
 }

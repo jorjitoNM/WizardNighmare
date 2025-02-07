@@ -135,6 +135,7 @@ public class HomeController implements DemiurgeConsumer {
         } else if (source == inventory) {
             toggleInventory();
         } else if (source == save) {
+            showInfoLabel("Saving the game...");
             service.saveDemiurge(demiurge);
         } else if (source == subirButtom) {
             try {
