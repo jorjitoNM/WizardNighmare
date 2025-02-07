@@ -80,6 +80,12 @@ public class RoomController implements DemiurgeConsumer {
             } catch (EndGameException e) {
                 App.cambiarPantalla(demiurge, Constants.FINISH);
             }
+        } else if (selection == demiurge.getDungeonManager().getNumberOfDoors()) {
+            try {
+                throw new EndGameException();
+            } catch (EndGameException e) {
+                App.cambiarPantalla(demiurge, Constants.FINISH);
+            }
         } else
             showInfoLabel("There is not a room there");
     }

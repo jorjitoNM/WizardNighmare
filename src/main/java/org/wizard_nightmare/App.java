@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.wizard_nightmare.game.demiurge.Demiurge;
+import org.wizard_nightmare.ui.common.Constants;
 import org.wizard_nightmare.ui.controllers.DemiurgeConsumer;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         stage = primaryStage;
         primaryStage.setTitle("Dungeon");
-        cambiarPantalla(null, "/screens/start.fxml");
+        cambiarPantalla(null, Constants.START);
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(500);
         primaryStage.setHeight(500);

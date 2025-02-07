@@ -47,9 +47,9 @@ public class StartController implements DemiurgeConsumer {
     private final int INITIAL_SINGA_CAPACITY = 50;
     private final int INITIAL_CHEST_CAPACITY = 4;
 
-    private final int INITIAL_LIFE = 5;
+    private final int INITIAL_LIFE = 10;
     private final int INITIAL_LIFE_MAX = 10;
-    private final int INITIAL_ENERGY = 5;
+    private final int INITIAL_ENERGY = 10;
     private final int INITIAL_ENERGY_MAX = 10;
     private final int INITIAL_CRYSTAL_CARRIER_CAPACITY = 3;
     private final int INITIAL_CRYSTAL_BAG_CAPACITY = 2;
@@ -134,6 +134,7 @@ public class StartController implements DemiurgeConsumer {
             demiurge.setContainerManager(new DemiurgeContainerManager(demiurge.getWizard().getWearables(), demiurge.getWizard().getJewelryBag(), demiurge.getHome().getContainer()));
             demiurge.setHomeManager(new DemiurgeHomeManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager()));
             demiurge.setDungeonManager(new DemiurgeDungeonManager(demiurge.getDungeonConfiguration(), demiurge.getWizard(), demiurge.getHome(), demiurge.getContainerManager(), demiurge.getEndChecker()));
+            demiurge.getDungeonManager().setCreature(creature);
             demiurge.nextDay();
         } catch (ContainerUnacceptedItemException | ContainerFullException | SpellUnknowableException |
                  ItemCreationErrorException ignored) {

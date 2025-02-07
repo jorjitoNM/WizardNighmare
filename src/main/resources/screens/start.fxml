@@ -8,14 +8,41 @@
     <Label layoutX="232.0" layoutY="57.0" style="-fx-font-size: 50px; -fx-font-weight: bold; " text="Wizard Nightmare"
            textFill="#ffffff"/>
 
-    <Button layoutX="349.0" layoutY="232.0" onAction="#loadGame" prefHeight="50.0" prefWidth="200.0"
-            style="-fx-font-size: 20px;" text="Load Game"/>
+    <Button layoutX="350.0" layoutY="232.0" onAction="#loadGame"
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #7ba9ec, #0813e8);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+                -fx-border-color: #0D47A1;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Load Game"/>
 
-    <Button layoutX="350.0" layoutY="399.0" onAction="#loadSavedGame" prefHeight="50.0" prefWidth="200.0"
-            style="-fx-font-size: 20px;" text="Load Saved Game"/>
+    <Button layoutX="350.0" layoutY="400.0" onAction="#loadSavedGame"
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #e16f12, #c33908);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+               -fx-border-color: #a15c0d;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Load Saved Game"/>
 
-    <Button layoutX="665.0" layoutY="789.0" onAction="#exit" prefHeight="50.0" prefWidth="200.0"
-            style="-fx-font-size: 20px;" text="Exit"/>
+    <Button layoutX="665.0" layoutY="790.0" onAction="#exit"
+            prefHeight="50.0" prefWidth="200.0"
+            style="-fx-font-size: 20px;
+               -fx-background-color: linear-gradient(to bottom, #D32F2F, #B71C1C);
+               -fx-text-fill: white;
+               -fx-background-radius: 25;
+               -fx-border-radius: 25;
+               -fx-border-color: #B71C1C;
+               -fx-border-width: 2;
+               -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);"
+            text="Exit"/>
 
     <Label fx:id="infoLabel" layoutX="200.0" layoutY="570.0" prefHeight="60.0" prefWidth="500.0"
            style="     -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */     -fx-text-fill: white; /* White text color */     -fx-font-size: 14px; /* Adjust font size as needed */     -fx-alignment: center; /* Center the text within the label */     -fx-padding: 10px; /* Add padding around the text */     -fx-background-radius: 5px; /* Rounded corners for the background */     -fx-border-radius: 5px; /* Rounded corners for the border */     -fx-border-color: white; /* White border color */     -fx-border-width: 1px; /* Border width */     -fx-wrap-text: true;"

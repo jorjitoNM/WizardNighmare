@@ -11,8 +11,8 @@ public class FilesService {
         dao = new FilesDao();
     }
 
-    public boolean saveDemiurge(Demiurge demiurge) {
-        return dao.saveDemiurge(demiurge);
+    public void saveDemiurge(Demiurge demiurge) {
+        dao.saveDemiurge(demiurge);
     }
 
     public Demiurge loadDemiurge() {

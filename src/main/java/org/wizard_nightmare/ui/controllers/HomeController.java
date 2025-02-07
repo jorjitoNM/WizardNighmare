@@ -13,18 +13,24 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import org.wizard_nightmare.App;
+import org.wizard_nightmare.game.character.exceptions.WizardNotEnoughEnergyException;
 import org.wizard_nightmare.game.character.exceptions.WizardTiredException;
 import org.wizard_nightmare.game.demiurge.Demiurge;
 import org.wizard_nightmare.game.demiurge.exceptions.EndGameException;
 import org.wizard_nightmare.game.demiurge.exceptions.GoHomekException;
+import org.wizard_nightmare.game.dungeon.HomeNotEnoughSingaException;
 import org.wizard_nightmare.game.object.Item;
+import org.wizard_nightmare.service.FilesService;
 import org.wizard_nightmare.ui.common.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeController implements DemiurgeConsumer {
-
+    @FXML
+    private Button save;
+    @FXML
+    private Button subirButtom;
     @FXML
     private Label nivel;
     @FXML
@@ -67,6 +73,12 @@ public class HomeController implements DemiurgeConsumer {
     private boolean isInventoryVisible = false;
 
     List<Item> items = new ArrayList<>();
+
+    private final FilesService service;
+
+    public HomeController() {
+        this.service = new FilesService();
+    }
 
     @Override
     public void loadScreenData(Demiurge demiurge) {
@@ -113,7 +125,7 @@ public class HomeController implements DemiurgeConsumer {
         if (source == cama) {
             demiurge.nextDay();
             loadHome();
-            showInfoLabel("Dia: " + demiurge.getDay());
+            showInfoLabel("Day: " + demiurge.getDay());
         } else if ((source == hechizos1) || (source == hechizos2)) {
             App.cambiarPantalla(demiurge, "/screens/spell_library.fxml");
         } else if (source == cofre) {
@@ -122,6 +134,19 @@ public class HomeController implements DemiurgeConsumer {
             App.cambiarPantalla(demiurge, "/screens/singa_storage.fxml");
         } else if (source == inventory) {
             toggleInventory();
+        } else if (source == save) {
+            service.saveDemiurge(demiurge);
+        } else if (source == subirButtom) {
+            try {
+                demiurge.getHomeManager().upgradeComfort();
+                nivel.setText(String.valueOf(demiurge.getHome().getComfort()));
+            } catch (HomeNotEnoughSingaException e) {
+                showInfoLabel("Not Enough Singa");
+            } catch (WizardNotEnoughEnergyException e) {
+                showInfoLabel("Not Enough Energy");
+            } catch (WizardTiredException e) {
+                showInfoLabel("The Wizard is Tired");
+            }
         }
     }
 
@@ -130,7 +155,6 @@ public class HomeController implements DemiurgeConsumer {
             inventoryContainer.getChildren().clear();
             for (Item item : items) {
                 Button itemButton = new Button(item.toString());
-                itemButton.setOnAction(e -> useItem(item));
                 inventoryContainer.getChildren().add(itemButton);
             }
             inventoryContainer.setVisible(true);
@@ -140,11 +164,7 @@ public class HomeController implements DemiurgeConsumer {
         isInventoryVisible = !isInventoryVisible;
     }
 
-    private void useItem(Item item) {
-        System.out.println("Usando: " + item.toString());
-    }
-
-    private void handleArrow (KeyEvent event) {
+    private void handleArrow(KeyEvent event) {
         System.out.println("Key pressed : " + event.getCode());
         int selection = -1;
         KeyCode keyCode = event.getCode();
@@ -165,16 +185,15 @@ public class HomeController implements DemiurgeConsumer {
                 showInfoLabel("Good night... zZzZzZzz");
                 App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (GoHomekException e) {
-                App.cambiarPantalla(demiurge,Constants.HOME);
+                App.cambiarPantalla(demiurge, Constants.HOME);
             } catch (EndGameException e) {
-                App.cambiarPantalla(demiurge,Constants.FINISH);
+                App.cambiarPantalla(demiurge, Constants.FINISH);
             }
-        }
-        else
+        } else
             showInfoLabel("There is not a room there");
     }
 
-    private void showInfoLabel (String message){
+    private void showInfoLabel(String message) {
         infoLabel.setText(message);
         infoLabel.setVisible(true);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), infoLabel);
