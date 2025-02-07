@@ -21,10 +21,5 @@
                 <Font size="24.0" />
             </font>
         </Button>
-      <Button layoutX="232.0" layoutY="644.0" mnemonicParsing="false" onAction="#getInforme" prefHeight="33.0" prefWidth="218.0" text="Wizard Report">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

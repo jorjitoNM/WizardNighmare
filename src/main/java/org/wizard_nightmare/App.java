@@ -21,7 +21,6 @@ public class App extends Application {
         cambiarPantalla(null, Constants.START);
         primaryStage.setMinHeight(500);
         primaryStage.setMinWidth(500);
-        primaryStage.setHeight(500);
         primaryStage.setMaxHeight(900);
         primaryStage.setMaxWidth(900);
         primaryStage.show();

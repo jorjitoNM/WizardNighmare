@@ -6,7 +6,6 @@ module org.wizard_nightmare {
     requires java.xml;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
-    requires jasperreports;
 
 
     opens org.wizard_nightmare to javafx.fxml,com.google.gson;
