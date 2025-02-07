@@ -1,0 +1,1623 @@
+{
+  "day": 1,
+  "dungeon": {
+    "rooms": [
+      {
+        "farm": {
+          "items": [
+            {
+              "type": "SingaCrystal",
+              "domain": "NONE",
+              "value": 9,
+              "viewed": false
+            }
+          ],
+          "domain": "NONE",
+          "value": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "bounded": false
+          },
+          "viewed": false
+        },
+        "id": 0,
+        "description": "Common room connected with HOME",
+        "visited": false,
+        "exit": false,
+        "container": {
+          "type": "RoomSet",
+          "domain": "NONE",
+          "value": 1,
+          "items": [
+            {
+              "domain": "LIFE",
+              "value": {
+                "value": 5,
+                "minimum": 5,
+                "maximum": 5,
+                "bounded": false
+              },
+              "viewed": false
+            }
+          ]
+        },
+        "doors": [
+          {
+            "a": -1,
+            "b": 0,
+            "used": false
+          },
+          {
+            "a": 0,
+            "b": 1,
+            "used": false
+          }
+        ]
+      },
+      {
+        "farm": {
+          "items": [
+            {
+              "type": "SingaCrystal",
+              "domain": "NONE",
+              "value": 9,
+              "viewed": false
+            },
+            {
+              "type": "SingaCrystal",
+              "domain": "NONE",
+              "value": 9,
+              "viewed": false
+            }
+          ],
+          "domain": "NONE",
+          "value": {
+            "value": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "bounded": false
+          },
+          "viewed": false
+        },
+        "creature": {
+          "viewed": false,
+          "name": "Big Monster",
+          "domain": "ELECTRICITY",
+          "life": {
+            "value": 5,
+            "minimum": 0,
+            "maximum": 5,
+            "bounded": true
+          },
+          "memory": {
+            "spells": [
+              {
+                "domain": "ELECTRICITY",
+                "level": {
+                  "value": 1,
+                  "minimum": 1,
+                  "maximum": 5,
+                  "bounded": true
+                }
+              }
+            ]
+          },
+          "attacks": [
+            {
+              "value": 1
+            },
+            {
+              "domain": "ELECTRICITY",
+              "level": {
+                "value": 1,
+                "minimum": 1,
+                "maximum": 5,
+                "bounded": true
+              }
+            }
+          ]
+        },
+        "id": 1,
+        "description": "Common room in the middle",
+        "visited": false,
+        "exit": false,
+        "container": {
+          "type": "RoomSet",
+          "domain": "NONE",
+          "value": 0,
+          "items": []
+        },
+        "doors": [
+          {
+            "a": 0,
+            "b": 1,
+            "used": false
+          },
+          {
+            "a": 1,
+            "b": 2,
+            "used": false
+          }
+        ]
+      },
+      {
+        "farm": {
+          "items": [
+            {
+              "type": "SingaCrystal",
+              "domain": "NONE",
+              "value": 2,
+              "viewed": false
+            }
+          ],
+          "domain": "NONE",
+          "value": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "bounded": false
+          },
+          "viewed": false
+        },
+        "id": 2,
+        "description": "Common room and Exit",
+        "visited": false,
+        "exit": true,
+        "container": {
+          "type": "RoomSet",
+          "domain": "NONE",
+          "value": 0,
+          "items": []
+        },
+        "doors": [
+          {
+            "a": 1,
+            "b": 2,
+            "used": false
+          }
+        ]
+      }
+    ]
+  },
+  "home": {
+    "comfort": {
+      "value": 1,
+      "minimum": 1,
+      "maximum": 1,
+      "bounded": false
+    },
+    "singa": {
+      "domain": "NONE",
+      "value": {
+        "value": 10,
+        "minimum": 0,
+        "maximum": 50,
+        "bounded": true
+      },
+      "viewed": false
+    },
+    "library": {
+      "spells": [
+        {
+          "domain": "ELECTRICITY",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        },
+        {
+          "domain": "FIRE",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        },
+        {
+          "domain": "AIR",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        }
+      ]
+    },
+    "id": -1,
+    "description": "Home",
+    "visited": false,
+    "exit": false,
+    "container": {
+      "type": "Chest",
+      "domain": "NONE",
+      "value": 4,
+      "items": [
+        {
+          "domain": "NONE",
+          "value": {
+            "value": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "bounded": false
+          },
+          "viewed": false
+        }
+      ]
+    },
+    "doors": [
+      {
+        "a": -1,
+        "b": 0,
+        "used": false
+      }
+    ]
+  },
+  "wizard": {
+    "energy": {
+      "value": 10,
+      "minimum": 0,
+      "maximum": 10,
+      "bounded": true
+    },
+    "wearables": {
+      "weapons": 1,
+      "necklaces": 0,
+      "rings": 0,
+      "weaponsMAX": 1,
+      "necklacesMAX": 1,
+      "ringsMAX": 2,
+      "items": [
+        {
+          "type": "Weapon",
+          "domain": "NONE",
+          "value": 1,
+          "viewed": true
+        }
+      ],
+      "domain": "NONE",
+      "value": {
+        "value": 4,
+        "minimum": 4,
+        "maximum": 4,
+        "bounded": false
+      },
+      "viewed": false
+    },
+    "crystalCarrier": {
+      "items": [
+        {
+          "type": "SingaCrystal",
+          "domain": "NONE",
+          "value": 4,
+          "viewed": false
+        }
+      ],
+      "domain": "NONE",
+      "value": {
+        "value": 3,
+        "minimum": 3,
+        "maximum": 3,
+        "bounded": false
+      },
+      "viewed": false
+    },
+    "jewelryBag": {
+      "items": [],
+      "domain": "NONE",
+      "value": {
+        "value": 2,
+        "minimum": 2,
+        "maximum": 2,
+        "bounded": false
+      },
+      "viewed": false
+    },
+    "name": "Merlin",
+    "domain": "NONE",
+    "life": {
+      "value": 10,
+      "minimum": 0,
+      "maximum": 10,
+      "bounded": true
+    },
+    "memory": {
+      "spells": [
+        {
+          "domain": "FIRE",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        }
+      ]
+    },
+    "attacks": [
+      {
+        "value": 1
+      },
+      {
+        "domain": "FIRE",
+        "level": {
+          "value": 1,
+          "minimum": 1,
+          "maximum": 5,
+          "bounded": true
+        }
+      },
+      {
+        "domain": "NONE",
+        "value": {
+          "value": 1,
+          "minimum": 1,
+          "maximum": 1,
+          "bounded": false
+        },
+        "viewed": true
+      }
+    ]
+  },
+  "dungeonConfiguration": {
+    "configuration": {
+      "basicIncrease": 1,
+      "minimumForRunAway": 30,
+      "crystalsPerDay": 3,
+      "basicUpgradeCost": 10,
+      "fightSuccessHigh": 20,
+      "comfortModifierForEnergy": 10,
+      "fightSuccessMedium": 50,
+      "singaPerCrystal": 10,
+      "comfortUpgradeCost": 100,
+      "singaPerLifePointCost": 3,
+      "stoneIncrease": 50,
+      "basicEnergyConsumption": 1,
+      "fightSuccessLow": 80
+    }
+  },
+  "homeManager": {
+    "dc": {
+      "configuration": {
+        "basicIncrease": 1,
+        "minimumForRunAway": 30,
+        "crystalsPerDay": 3,
+        "basicUpgradeCost": 10,
+        "fightSuccessHigh": 20,
+        "comfortModifierForEnergy": 10,
+        "fightSuccessMedium": 50,
+        "singaPerCrystal": 10,
+        "comfortUpgradeCost": 100,
+        "singaPerLifePointCost": 3,
+        "stoneIncrease": 50,
+        "basicEnergyConsumption": 1,
+        "fightSuccessLow": 80
+      }
+    },
+    "wizard": {
+      "energy": {
+        "value": 10,
+        "minimum": 0,
+        "maximum": 10,
+        "bounded": true
+      },
+      "wearables": {
+        "weapons": 1,
+        "necklaces": 0,
+        "rings": 0,
+        "weaponsMAX": 1,
+        "necklacesMAX": 1,
+        "ringsMAX": 2,
+        "items": [
+          {
+            "type": "Weapon",
+            "domain": "NONE",
+            "value": 1,
+            "viewed": true
+          }
+        ],
+        "domain": "NONE",
+        "value": {
+          "value": 4,
+          "minimum": 4,
+          "maximum": 4,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "crystalCarrier": {
+        "items": [
+          {
+            "type": "SingaCrystal",
+            "domain": "NONE",
+            "value": 4,
+            "viewed": false
+          }
+        ],
+        "domain": "NONE",
+        "value": {
+          "value": 3,
+          "minimum": 3,
+          "maximum": 3,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "jewelryBag": {
+        "items": [],
+        "domain": "NONE",
+        "value": {
+          "value": 2,
+          "minimum": 2,
+          "maximum": 2,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "name": "Merlin",
+      "domain": "NONE",
+      "life": {
+        "value": 10,
+        "minimum": 0,
+        "maximum": 10,
+        "bounded": true
+      },
+      "memory": {
+        "spells": [
+          {
+            "domain": "FIRE",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          }
+        ]
+      },
+      "attacks": [
+        {
+          "value": 1
+        },
+        {
+          "domain": "FIRE",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        },
+        {
+          "domain": "NONE",
+          "value": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "bounded": false
+          },
+          "viewed": true
+        }
+      ]
+    },
+    "home": {
+      "comfort": {
+        "value": 1,
+        "minimum": 1,
+        "maximum": 1,
+        "bounded": false
+      },
+      "singa": {
+        "domain": "NONE",
+        "value": {
+          "value": 10,
+          "minimum": 0,
+          "maximum": 50,
+          "bounded": true
+        },
+        "viewed": false
+      },
+      "library": {
+        "spells": [
+          {
+            "domain": "ELECTRICITY",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          },
+          {
+            "domain": "FIRE",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          },
+          {
+            "domain": "AIR",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          }
+        ]
+      },
+      "id": -1,
+      "description": "Home",
+      "visited": false,
+      "exit": false,
+      "container": {
+        "type": "Chest",
+        "domain": "NONE",
+        "value": 4,
+        "items": [
+          {
+            "domain": "NONE",
+            "value": {
+              "value": 2,
+              "minimum": 2,
+              "maximum": 2,
+              "bounded": false
+            },
+            "viewed": false
+          }
+        ]
+      },
+      "doors": [
+        {
+          "a": -1,
+          "b": 0,
+          "used": false
+        }
+      ]
+    },
+    "containerManager": {
+      "wearables": {
+        "type": "Wearables",
+        "domain": "NONE",
+        "value": 4,
+        "items": [
+          {
+            "domain": "NONE",
+            "value": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 1,
+              "bounded": false
+            },
+            "viewed": true
+          }
+        ]
+      },
+      "bag": {
+        "type": "JewelryBag",
+        "domain": "NONE",
+        "value": 2,
+        "items": []
+      },
+      "site": {
+        "type": "Chest",
+        "domain": "NONE",
+        "value": 4,
+        "items": [
+          {
+            "domain": "NONE",
+            "value": {
+              "value": 2,
+              "minimum": 2,
+              "maximum": 2,
+              "bounded": false
+            },
+            "viewed": false
+          }
+        ]
+      }
+    }
+  },
+  "containerManager": {
+    "wearables": {
+      "type": "Wearables",
+      "domain": "NONE",
+      "value": 4,
+      "items": [
+        {
+          "domain": "NONE",
+          "value": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "bounded": false
+          },
+          "viewed": true
+        }
+      ]
+    },
+    "bag": {
+      "type": "JewelryBag",
+      "domain": "NONE",
+      "value": 2,
+      "items": []
+    },
+    "site": {
+      "type": "Chest",
+      "domain": "NONE",
+      "value": 4,
+      "items": [
+        {
+          "domain": "NONE",
+          "value": {
+            "value": 2,
+            "minimum": 2,
+            "maximum": 2,
+            "bounded": false
+          },
+          "viewed": false
+        }
+      ]
+    }
+  },
+  "dungeonManager": {
+    "dc": {
+      "configuration": {
+        "basicIncrease": 1,
+        "minimumForRunAway": 30,
+        "crystalsPerDay": 3,
+        "basicUpgradeCost": 10,
+        "fightSuccessHigh": 20,
+        "comfortModifierForEnergy": 10,
+        "fightSuccessMedium": 50,
+        "singaPerCrystal": 10,
+        "comfortUpgradeCost": 100,
+        "singaPerLifePointCost": 3,
+        "stoneIncrease": 50,
+        "basicEnergyConsumption": 1,
+        "fightSuccessLow": 80
+      }
+    },
+    "wizard": {
+      "energy": {
+        "value": 10,
+        "minimum": 0,
+        "maximum": 10,
+        "bounded": true
+      },
+      "wearables": {
+        "weapons": 1,
+        "necklaces": 0,
+        "rings": 0,
+        "weaponsMAX": 1,
+        "necklacesMAX": 1,
+        "ringsMAX": 2,
+        "items": [
+          {
+            "type": "Weapon",
+            "domain": "NONE",
+            "value": 1,
+            "viewed": true
+          }
+        ],
+        "domain": "NONE",
+        "value": {
+          "value": 4,
+          "minimum": 4,
+          "maximum": 4,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "crystalCarrier": {
+        "items": [
+          {
+            "type": "SingaCrystal",
+            "domain": "NONE",
+            "value": 4,
+            "viewed": false
+          }
+        ],
+        "domain": "NONE",
+        "value": {
+          "value": 3,
+          "minimum": 3,
+          "maximum": 3,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "jewelryBag": {
+        "items": [],
+        "domain": "NONE",
+        "value": {
+          "value": 2,
+          "minimum": 2,
+          "maximum": 2,
+          "bounded": false
+        },
+        "viewed": false
+      },
+      "name": "Merlin",
+      "domain": "NONE",
+      "life": {
+        "value": 10,
+        "minimum": 0,
+        "maximum": 10,
+        "bounded": true
+      },
+      "memory": {
+        "spells": [
+          {
+            "domain": "FIRE",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          }
+        ]
+      },
+      "attacks": [
+        {
+          "value": 1
+        },
+        {
+          "domain": "FIRE",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        },
+        {
+          "domain": "NONE",
+          "value": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "bounded": false
+          },
+          "viewed": true
+        }
+      ]
+    },
+    "site": {
+      "id": -1,
+      "description": "Home",
+      "visited": false,
+      "exit": false,
+      "doors": [
+        {
+          "doorId": "-1:0"
+        }
+      ]
+    },
+    "creature": {
+      "viewed": false,
+      "name": "Big Monster",
+      "domain": "ELECTRICITY",
+      "life": {
+        "value": 5,
+        "minimum": 0,
+        "maximum": 5,
+        "bounded": true
+      },
+      "memory": {
+        "spells": [
+          {
+            "domain": "ELECTRICITY",
+            "level": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 5,
+              "bounded": true
+            }
+          }
+        ]
+      },
+      "attacks": [
+        {
+          "value": 1
+        },
+        {
+          "domain": "ELECTRICITY",
+          "level": {
+            "value": 1,
+            "minimum": 1,
+            "maximum": 5,
+            "bounded": true
+          }
+        }
+      ]
+    },
+    "containerManager": {
+      "wearables": {
+        "type": "Wearables",
+        "domain": "NONE",
+        "value": 4,
+        "items": [
+          {
+            "domain": "NONE",
+            "value": {
+              "value": 1,
+              "minimum": 1,
+              "maximum": 1,
+              "bounded": false
+            },
+            "viewed": true
+          }
+        ]
+      },
+      "bag": {
+        "type": "JewelryBag",
+        "domain": "NONE",
+        "value": 2,
+        "items": []
+      },
+      "site": {
+        "type": "Chest",
+        "domain": "NONE",
+        "value": 4,
+        "items": [
+          {
+            "domain": "NONE",
+            "value": {
+              "value": 2,
+              "minimum": 2,
+              "maximum": 2,
+              "bounded": false
+            },
+            "viewed": false
+          }
+        ]
+      }
+    },
+    "endChecker": {
+      "conditions": [
+        {},
+        {
+          "dungeon": {
+            "rooms": [
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 1,
+                    "minimum": 1,
+                    "maximum": 1,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "id": 0,
+                "description": "Common room connected with HOME",
+                "visited": false,
+                "exit": false,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 1,
+                  "items": [
+                    {
+                      "domain": "LIFE",
+                      "value": {
+                        "value": 5,
+                        "minimum": 5,
+                        "maximum": 5,
+                        "bounded": false
+                      },
+                      "viewed": false
+                    }
+                  ]
+                },
+                "doors": [
+                  {
+                    "a": -1,
+                    "b": 0,
+                    "used": false
+                  },
+                  {
+                    "a": 0,
+                    "b": 1,
+                    "used": false
+                  }
+                ]
+              },
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    },
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 2,
+                    "minimum": 2,
+                    "maximum": 2,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "creature": {
+                  "viewed": false,
+                  "name": "Big Monster",
+                  "domain": "ELECTRICITY",
+                  "life": {
+                    "value": 5,
+                    "minimum": 0,
+                    "maximum": 5,
+                    "bounded": true
+                  },
+                  "memory": {
+                    "spells": [
+                      {
+                        "domain": "ELECTRICITY",
+                        "level": {
+                          "value": 1,
+                          "minimum": 1,
+                          "maximum": 5,
+                          "bounded": true
+                        }
+                      }
+                    ]
+                  },
+                  "attacks": [
+                    {
+                      "value": 1
+                    },
+                    {
+                      "domain": "ELECTRICITY",
+                      "level": {
+                        "value": 1,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "bounded": true
+                      }
+                    }
+                  ]
+                },
+                "id": 1,
+                "description": "Common room in the middle",
+                "visited": false,
+                "exit": false,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 0,
+                  "items": []
+                },
+                "doors": [
+                  {
+                    "a": 0,
+                    "b": 1,
+                    "used": false
+                  },
+                  {
+                    "a": 1,
+                    "b": 2,
+                    "used": false
+                  }
+                ]
+              },
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 2,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 1,
+                    "minimum": 1,
+                    "maximum": 1,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "id": 2,
+                "description": "Common room and Exit",
+                "visited": false,
+                "exit": true,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 0,
+                  "items": []
+                },
+                "doors": [
+                  {
+                    "a": 1,
+                    "b": 2,
+                    "used": false
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "dungeon": {
+            "rooms": [
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 1,
+                    "minimum": 1,
+                    "maximum": 1,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "id": 0,
+                "description": "Common room connected with HOME",
+                "visited": false,
+                "exit": false,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 1,
+                  "items": [
+                    {
+                      "domain": "LIFE",
+                      "value": {
+                        "value": 5,
+                        "minimum": 5,
+                        "maximum": 5,
+                        "bounded": false
+                      },
+                      "viewed": false
+                    }
+                  ]
+                },
+                "doors": [
+                  {
+                    "a": -1,
+                    "b": 0,
+                    "used": false
+                  },
+                  {
+                    "a": 0,
+                    "b": 1,
+                    "used": false
+                  }
+                ]
+              },
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    },
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 9,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 2,
+                    "minimum": 2,
+                    "maximum": 2,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "creature": {
+                  "viewed": false,
+                  "name": "Big Monster",
+                  "domain": "ELECTRICITY",
+                  "life": {
+                    "value": 5,
+                    "minimum": 0,
+                    "maximum": 5,
+                    "bounded": true
+                  },
+                  "memory": {
+                    "spells": [
+                      {
+                        "domain": "ELECTRICITY",
+                        "level": {
+                          "value": 1,
+                          "minimum": 1,
+                          "maximum": 5,
+                          "bounded": true
+                        }
+                      }
+                    ]
+                  },
+                  "attacks": [
+                    {
+                      "value": 1
+                    },
+                    {
+                      "domain": "ELECTRICITY",
+                      "level": {
+                        "value": 1,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "bounded": true
+                      }
+                    }
+                  ]
+                },
+                "id": 1,
+                "description": "Common room in the middle",
+                "visited": false,
+                "exit": false,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 0,
+                  "items": []
+                },
+                "doors": [
+                  {
+                    "a": 0,
+                    "b": 1,
+                    "used": false
+                  },
+                  {
+                    "a": 1,
+                    "b": 2,
+                    "used": false
+                  }
+                ]
+              },
+              {
+                "farm": {
+                  "items": [
+                    {
+                      "type": "SingaCrystal",
+                      "domain": "NONE",
+                      "value": 2,
+                      "viewed": false
+                    }
+                  ],
+                  "domain": "NONE",
+                  "value": {
+                    "value": 1,
+                    "minimum": 1,
+                    "maximum": 1,
+                    "bounded": false
+                  },
+                  "viewed": false
+                },
+                "id": 2,
+                "description": "Common room and Exit",
+                "visited": false,
+                "exit": true,
+                "container": {
+                  "type": "RoomSet",
+                  "domain": "NONE",
+                  "value": 0,
+                  "items": []
+                },
+                "doors": [
+                  {
+                    "a": 1,
+                    "b": 2,
+                    "used": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "endChecker": {
+    "conditions": [
+      {},
+      {
+        "dungeon": {
+          "rooms": [
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 1,
+                  "minimum": 1,
+                  "maximum": 1,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "id": 0,
+              "description": "Common room connected with HOME",
+              "visited": false,
+              "exit": false,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 1,
+                "items": [
+                  {
+                    "domain": "LIFE",
+                    "value": {
+                      "value": 5,
+                      "minimum": 5,
+                      "maximum": 5,
+                      "bounded": false
+                    },
+                    "viewed": false
+                  }
+                ]
+              },
+              "doors": [
+                {
+                  "a": -1,
+                  "b": 0,
+                  "used": false
+                },
+                {
+                  "a": 0,
+                  "b": 1,
+                  "used": false
+                }
+              ]
+            },
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  },
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 2,
+                  "minimum": 2,
+                  "maximum": 2,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "creature": {
+                "viewed": false,
+                "name": "Big Monster",
+                "domain": "ELECTRICITY",
+                "life": {
+                  "value": 5,
+                  "minimum": 0,
+                  "maximum": 5,
+                  "bounded": true
+                },
+                "memory": {
+                  "spells": [
+                    {
+                      "domain": "ELECTRICITY",
+                      "level": {
+                        "value": 1,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "bounded": true
+                      }
+                    }
+                  ]
+                },
+                "attacks": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "domain": "ELECTRICITY",
+                    "level": {
+                      "value": 1,
+                      "minimum": 1,
+                      "maximum": 5,
+                      "bounded": true
+                    }
+                  }
+                ]
+              },
+              "id": 1,
+              "description": "Common room in the middle",
+              "visited": false,
+              "exit": false,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 0,
+                "items": []
+              },
+              "doors": [
+                {
+                  "a": 0,
+                  "b": 1,
+                  "used": false
+                },
+                {
+                  "a": 1,
+                  "b": 2,
+                  "used": false
+                }
+              ]
+            },
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 2,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 1,
+                  "minimum": 1,
+                  "maximum": 1,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "id": 2,
+              "description": "Common room and Exit",
+              "visited": false,
+              "exit": true,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 0,
+                "items": []
+              },
+              "doors": [
+                {
+                  "a": 1,
+                  "b": 2,
+                  "used": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "dungeon": {
+          "rooms": [
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 1,
+                  "minimum": 1,
+                  "maximum": 1,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "id": 0,
+              "description": "Common room connected with HOME",
+              "visited": false,
+              "exit": false,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 1,
+                "items": [
+                  {
+                    "domain": "LIFE",
+                    "value": {
+                      "value": 5,
+                      "minimum": 5,
+                      "maximum": 5,
+                      "bounded": false
+                    },
+                    "viewed": false
+                  }
+                ]
+              },
+              "doors": [
+                {
+                  "a": -1,
+                  "b": 0,
+                  "used": false
+                },
+                {
+                  "a": 0,
+                  "b": 1,
+                  "used": false
+                }
+              ]
+            },
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  },
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 9,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 2,
+                  "minimum": 2,
+                  "maximum": 2,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "creature": {
+                "viewed": false,
+                "name": "Big Monster",
+                "domain": "ELECTRICITY",
+                "life": {
+                  "value": 5,
+                  "minimum": 0,
+                  "maximum": 5,
+                  "bounded": true
+                },
+                "memory": {
+                  "spells": [
+                    {
+                      "domain": "ELECTRICITY",
+                      "level": {
+                        "value": 1,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "bounded": true
+                      }
+                    }
+                  ]
+                },
+                "attacks": [
+                  {
+                    "value": 1
+                  },
+                  {
+                    "domain": "ELECTRICITY",
+                    "level": {
+                      "value": 1,
+                      "minimum": 1,
+                      "maximum": 5,
+                      "bounded": true
+                    }
+                  }
+                ]
+              },
+              "id": 1,
+              "description": "Common room in the middle",
+              "visited": false,
+              "exit": false,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 0,
+                "items": []
+              },
+              "doors": [
+                {
+                  "a": 0,
+                  "b": 1,
+                  "used": false
+                },
+                {
+                  "a": 1,
+                  "b": 2,
+                  "used": false
+                }
+              ]
+            },
+            {
+              "farm": {
+                "items": [
+                  {
+                    "type": "SingaCrystal",
+                    "domain": "NONE",
+                    "value": 2,
+                    "viewed": false
+                  }
+                ],
+                "domain": "NONE",
+                "value": {
+                  "value": 1,
+                  "minimum": 1,
+                  "maximum": 1,
+                  "bounded": false
+                },
+                "viewed": false
+              },
+              "id": 2,
+              "description": "Common room and Exit",
+              "visited": false,
+              "exit": true,
+              "container": {
+                "type": "RoomSet",
+                "domain": "NONE",
+                "value": 0,
+                "items": []
+              },
+              "doors": [
+                {
+                  "a": 1,
+                  "b": 2,
+                  "used": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
